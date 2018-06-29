@@ -92,7 +92,7 @@ get available configs/poses:
 joints can only be moved one at a time.
 
 Start bringup:
-`roslaunch cob_test_rigs single_[elmo/schunk].launch can_device:=can0 can_id:=XX`
+`roslaunch cob_test_rigs single_[elmo/schunk/nanotec].launch can_device:=can0 can_id:=XX`
 
 can_ids:
  - torso: 31, 32, 33
@@ -101,7 +101,7 @@ can_ids:
  - arm: 61, 62, 63, 64, 65, 66, 67
 
 initialize/recover:
-`rosservice call /single_[elmo/schunk]/driver/[init/recover]`
+`rosservice call /single_[elmo/schunk/nanotec]/driver/[init/recover]`
 
 start graphical tools:
 `rqt`
@@ -126,8 +126,13 @@ Test JointPositionController/JointVelocityController
    - make sure no other "commanding" controller is running at the same time ("joint_state_controller" can be "running")
 
  2. command sine function
-   - rosrun cob_test_rigs test_single_sine.py -a 0.1 -b 0.1 -c 0.0 -d 0.0 -n 0.0 __ns:=single_[elmo/schunk]/single_joint_[position/velocity]_controller
+   - rosrun cob_test_rigs test_single_sine.py -a 0.1 -b 0.1 -c 0.0 -d 0.0 -n 0.0 __ns:=single_[elmo/schunk/nanotec]/single_joint_[position/velocity]_controller
    - set parameters a, b, c, d, n with caution!!!
-   - adjust value of __ns according to loaded controller
+   - publishes a sine function of the form: `y=a*sin(b(x+c))+d`
+   - `a`: amplitude
+   - `b`: period
+   - `c`: phase shift
+   - `d`: vertical shift
+   - adjust value of `__ns` according to loaded controller
 
 
