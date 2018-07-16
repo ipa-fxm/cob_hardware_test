@@ -2896,6 +2896,7 @@ DataType=0x0007
 AccessType=rww
 DefaultValue=256
 PDOMapping=1
+ParameterValue=5000
 
 [6066]
 ParameterName=Following error time out
@@ -3349,7 +3350,7 @@ DataType=0x0005
 AccessType=rw
 DefaultValue=1
 PDOMapping=0
-ParameterValue=10
+ParameterValue=16
 
 [60C2sub2]
 ParameterName=Interpolation time index
