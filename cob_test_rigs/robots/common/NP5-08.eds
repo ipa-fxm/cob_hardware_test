@@ -526,6 +526,7 @@ DataType=0x0006
 AccessType=rw
 DefaultValue=0x0000
 PDOMapping=0
+ParameterValue=100
 
 [1020]
 ParameterName=Verify Configuration
@@ -613,6 +614,7 @@ DataType=0x0005
 AccessType=rw
 DefaultValue=0xFF
 PDOMapping=0
+ParameterValue=0x1
 
 [1401]
 ParameterName=Receive PDO 2 Communication Parameter
@@ -642,6 +644,7 @@ DataType=0x0005
 AccessType=rw
 DefaultValue=0xFF
 PDOMapping=0
+ParameterValue=0xFF
 
 [1402]
 ParameterName=Receive PDO 3 Communication Parameter
@@ -671,6 +674,7 @@ DataType=0x0005
 AccessType=rw
 DefaultValue=0xFF
 PDOMapping=0
+ParameterValue=0xFF
 
 [1403]
 ParameterName=Receive PDO 4 Communication Parameter
@@ -700,6 +704,7 @@ DataType=0x0005
 AccessType=rw
 DefaultValue=0xFF
 PDOMapping=0
+ParameterValue=0xFF
 
 [1404]
 ParameterName=Receive PDO 5 Communication Parameter
@@ -984,7 +989,6 @@ DataType=0x0005
 AccessType=rw
 DefaultValue=0x01
 PDOMapping=0
-ParameterValue=0x00
 
 [1602sub1]
 ParameterName=1st object to be mapped
@@ -993,7 +997,7 @@ DataType=0x0007
 AccessType=rw
 DefaultValue=0x60420010
 PDOMapping=0
-ParameterValue=0x00000000
+ParameterValue=0x60c10120
 
 [1602sub2]
 ParameterName=2nd object to be mapped
@@ -1464,6 +1468,7 @@ DataType=0x0005
 AccessType=rw
 DefaultValue=0xFF
 PDOMapping=0
+ParameterValue=0x1
 
 [1800sub3]
 ParameterName=Inhibit Time
@@ -1517,6 +1522,7 @@ DataType=0x0005
 AccessType=rw
 DefaultValue=0xFF
 PDOMapping=0
+ParameterValue=0xFF
 
 [1801sub3]
 ParameterName=Inhibit Time
@@ -1570,6 +1576,7 @@ DataType=0x0005
 AccessType=rw
 DefaultValue=0xFF
 PDOMapping=0
+ParameterValue=0xFF
 
 [1802sub3]
 ParameterName=Inhibit Time
@@ -1623,6 +1630,7 @@ DataType=0x0005
 AccessType=rw
 DefaultValue=0xFF
 PDOMapping=0
+ParameterValue=0xFF
 
 [1803sub3]
 ParameterName=Inhibit Time
@@ -3009,6 +3017,7 @@ DataType=0x0004
 AccessType=rww
 DefaultValue=0x00000000
 PDOMapping=1
+ParameterValue=-1000000000
 
 [607Bsub2]
 ParameterName=Max position range limit
@@ -3017,6 +3026,7 @@ DataType=0x0004
 AccessType=rww
 DefaultValue=0x00000000
 PDOMapping=1
+ParameterValue=1000000000
 
 [607C]
 ParameterName=Home offset
@@ -3046,6 +3056,7 @@ DataType=0x0004
 AccessType=rww
 DefaultValue=0x00000000
 PDOMapping=1
+ParameterValue=-900000000
 
 [607Dsub2]
 ParameterName=Max position limit
@@ -3054,6 +3065,7 @@ DataType=0x0004
 AccessType=rww
 DefaultValue=0x00000000
 PDOMapping=1
+ParameterValue=900000000
 
 [607E]
 ParameterName=Polarity
@@ -3337,6 +3349,7 @@ DataType=0x0005
 AccessType=rw
 DefaultValue=1
 PDOMapping=0
+ParameterValue=10
 
 [60C2sub2]
 ParameterName=Interpolation time index
@@ -3382,6 +3395,7 @@ DataType=0x0005
 AccessType=rw
 DefaultValue=0
 PDOMapping=0
+ParameterValue=1
 
 [60C4sub4]
 ParameterName=BufferPosition
@@ -3390,6 +3404,7 @@ DataType=0x0006
 AccessType=rw
 DefaultValue=1
 PDOMapping=0
+ParameterValue=0
 
 [60C4sub5]
 ParameterName=SizeOfDataRecord

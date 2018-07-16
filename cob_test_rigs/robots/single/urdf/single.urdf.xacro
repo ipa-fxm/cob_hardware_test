@@ -13,7 +13,7 @@
     <child link="tip_link"/>
     <axis xyz="0 0 1" />
     <dynamics damping="0" friction="0"/>
-    <limit effort="15" velocity="1.0" lower="${-M_PI}" upper="${M_PI}"/>
+    <limit effort="15" velocity="50.0" lower="${-20*M_PI}" upper="${20*M_PI}"/>
   </joint>
 
   <link name="tip_link"/>
