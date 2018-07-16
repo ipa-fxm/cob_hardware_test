@@ -918,10 +918,11 @@ PDOMapping=0
 [1601sub2]
 ParameterName=2nd object to be mapped
 ObjectType=0x7
-DataType=0x0004
+DataType=0x0007
 AccessType=rw
-DefaultValue=0x60FF0020
+DefaultValue=0x60810020
 PDOMapping=0
+ParameterValue=0x60FF0020
 
 [1601sub3]
 ParameterName=3rd object to be mapped
@@ -981,16 +982,18 @@ ParameterName=Highest sub-index supported
 ObjectType=0x7
 DataType=0x0005
 AccessType=rw
-DefaultValue=0x00
+DefaultValue=0x01
 PDOMapping=0
+ParameterValue=0x00
 
 [1602sub1]
 ParameterName=1st object to be mapped
 ObjectType=0x7
 DataType=0x0007
 AccessType=rw
-DefaultValue=0x00000000
+DefaultValue=0x60420010
 PDOMapping=0
+ParameterValue=0x00000000
 
 [1602sub2]
 ParameterName=2nd object to be mapped
@@ -2029,8 +2032,9 @@ ParameterName=1st object to be mapped
 ObjectType=0x7
 DataType=0x0007
 AccessType=rw
-DefaultValue=0x606C0020
+DefaultValue=0x60440010
 PDOMapping=0
+ParameterValue=0x606C0020
 
 [1A02sub2]
 ParameterName=2nd object to be mapped
