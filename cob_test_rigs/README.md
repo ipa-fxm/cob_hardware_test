@@ -136,3 +136,17 @@ Test JointPositionController/JointVelocityController
    - adjust value of `__ns` according to loaded controller
 
 
+
+==========================================================================
+CANDUMP DEBUGGING
+
+live logging
+ - candump [-t a] <can_device> [> output.log]
+ - example: candump -t a can0 > output_raw.log
+live logging readable mapping
+ - candump [-t a] <can_device> | rosrun canopen_test_utils readable.py [elmo|schunk|nanotec]_mapping [> output.log]
+ - example: candump -t a can0 | rosrun canopen_test_utils readable.py nanotec_mapping > output.log
+post logging readable mapping
+ - cat input.log | rosrun canopen_test_utils readable.py [elmo|schunk|nanotec]_mapping [> output.log]
+ - example: cat output_raw.log | rosrun canopen_test_utils readable.py nanotec_mapping > output.log
+
