@@ -644,7 +644,7 @@ DataType=0x0005
 AccessType=rw
 DefaultValue=0xFF
 PDOMapping=0
-ParameterValue=0xFF
+ParameterValue=0x1
 
 [1402]
 ParameterName=Receive PDO 3 Communication Parameter
@@ -674,7 +674,7 @@ DataType=0x0005
 AccessType=rw
 DefaultValue=0xFF
 PDOMapping=0
-ParameterValue=0xFF
+ParameterValue=0x1
 
 [1403]
 ParameterName=Receive PDO 4 Communication Parameter
@@ -704,7 +704,7 @@ DataType=0x0005
 AccessType=rw
 DefaultValue=0xFF
 PDOMapping=0
-ParameterValue=0xFF
+ParameterValue=0x1
 
 [1404]
 ParameterName=Receive PDO 5 Communication Parameter
@@ -1522,7 +1522,7 @@ DataType=0x0005
 AccessType=rw
 DefaultValue=0xFF
 PDOMapping=0
-ParameterValue=0xFF
+ParameterValue=0x1
 
 [1801sub3]
 ParameterName=Inhibit Time
@@ -1576,7 +1576,7 @@ DataType=0x0005
 AccessType=rw
 DefaultValue=0xFF
 PDOMapping=0
-ParameterValue=0xFF
+ParameterValue=0x1
 
 [1802sub3]
 ParameterName=Inhibit Time
@@ -1630,7 +1630,7 @@ DataType=0x0005
 AccessType=rw
 DefaultValue=0xFF
 PDOMapping=0
-ParameterValue=0xFF
+ParameterValue=0x1
 
 [1803sub3]
 ParameterName=Inhibit Time
@@ -3245,7 +3245,7 @@ ParameterName=Speed during search for switch
 ObjectType=0x7
 DataType=0x0007
 AccessType=rww
-DefaultValue=50
+DefaultValue=5000
 PDOMapping=1
 
 [6099sub2]
@@ -3253,7 +3253,7 @@ ParameterName=Speed during search for zero
 ObjectType=0x7
 DataType=0x0007
 AccessType=rww
-DefaultValue=10
+DefaultValue=1000
 PDOMapping=1
 
 [609A]
@@ -3261,7 +3261,7 @@ ParameterName=Homing acceleration
 ObjectType=0x7
 DataType=0x0007
 AccessType=rww
-DefaultValue=500
+DefaultValue=50000
 PDOMapping=1
 
 [60A4]
