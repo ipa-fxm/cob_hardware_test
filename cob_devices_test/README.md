@@ -23,6 +23,9 @@ The LEDs of the wheel covers will light up one-by-one (CIRCLE_COLOR) red-green-b
 ### Laserscanner:
 Select **Base_Test** in RVIZ, the laserscanner points should be visible in RVIZ (front-green, left-white, right-yellow)
 
+### Fall-Sensors:
+Test Fall-Sensors with magnet.
+
 ### BMS:
 Check diagnostics in the `rqt_robot_monitor`
 
