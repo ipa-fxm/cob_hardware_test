@@ -2,21 +2,19 @@
 CreatedBy=Nanotec Electronic GmbH & Co. KG
 ModifiedBy=Nanotec Electronic GmbH & Co. KG
 Description=Motion controller
-CreationTime=01:29PM
-CreationDate=01-12-2018
-ModificationTime=01:29PM
-ModificationDate=01-12-2018
-FileName=NP5-08.eds
+CreationTime=05:19PM
+CreationDate=09-07-2018
+ModificationTime=05:19PM
+ModificationDate=09-07-2018
+FileName=NP5-08.dcf
 FileVersion=1
 FileRevision=1
 EDSVersion=4.0
+LastEDS=NP5-08.dcf
 
 [DeviceInfo]
 VendorName=Nanotec Electronic GmbH & Co. KG
-VendorNumber=0x26C
 ProductName=NP5-08
-ProductNumber=0x24
-RevisionNumber=0x6720000
 OrderCode=na
 BaudRate_10=1
 BaudRate_20=1
@@ -36,6 +34,11 @@ NrOfRXPDO=8
 NrOfTXPDO=8
 LSS_Supported=0
 
+[DeviceComissioning]
+Baudrate=125
+NetNumber=0
+LSS_SerialNumber=0
+
 [DummyUsage]
 Dummy0001=0
 Dummy0002=1
@@ -46,10 +49,10 @@ Dummy0006=1
 Dummy0007=1
 
 [Comments]
-Lines=0x00
+Lines=0
 
 [MandatoryObjects]
-SupportedObjects=0x03
+SupportedObjects=3
 1=0x1000
 2=0x1001
 3=0x1018
@@ -61,7 +64,7 @@ DataType=0x0007
 AccessType=ro
 DefaultValue=0x00060192
 PDOMapping=0
-ObjFlags=1
+ObjFlags=0x1
 
 [1001]
 ParameterName=Error Register
@@ -70,12 +73,12 @@ DataType=0x0005
 AccessType=ro
 DefaultValue=0x00
 PDOMapping=1
-ObjFlags=1
+ObjFlags=0x1
 
 [1018]
 ParameterName=Identity Object
 ObjectType=0x9
-SubNumber=0x05
+SubNumber=5
 
 [1018sub0]
 ParameterName=Highest sub-index supported
@@ -118,12 +121,11 @@ ParameterName=Serial number
 ObjectType=0x7
 DataType=0x0007
 AccessType=ro
-DefaultValue=
 PDOMapping=0
 ObjFlags=1
 
 [OptionalObjects]
-SupportedObjects=0x71
+SupportedObjects=113
 1=0x1003
 2=0x1005
 3=0x1007
@@ -241,7 +243,7 @@ SupportedObjects=0x71
 [1003]
 ParameterName=Pre-defined error field
 ObjectType=0x8
-SubNumber=0x09
+SubNumber=9
 
 [1003sub0]
 ParameterName=number of errors
@@ -339,16 +341,15 @@ DataType=0x0009
 AccessType=const
 DefaultValue=NP5-08
 PDOMapping=0
-ObjFlags=1
+ObjFlags=0x1
 
 [1009]
 ParameterName=Manufacturer Hardware Version
 ObjectType=0x7
 DataType=0x0009
 AccessType=const
-DefaultValue=
 PDOMapping=0
-ObjFlags=1
+ObjFlags=0x1
 
 [100A]
 ParameterName=Manufacturer Software Version
@@ -357,7 +358,7 @@ DataType=0x0009
 AccessType=const
 DefaultValue=FIR-v1650-B527540
 PDOMapping=0
-ObjFlags=1
+ObjFlags=0x1
 
 [100C]
 ParameterName=Guard Time
@@ -378,7 +379,7 @@ PDOMapping=0
 [1010]
 ParameterName=Store parameters
 ObjectType=0x8
-SubNumber=0x07
+SubNumber=7
 
 [1010sub0]
 ParameterName=Highest sub-index supported
@@ -446,7 +447,7 @@ ObjFlags=1
 [1011]
 ParameterName=Restore default parameters
 ObjectType=0x8
-SubNumber=0x07
+SubNumber=7
 
 [1011sub0]
 ParameterName=Highest sub-index supported
@@ -531,7 +532,7 @@ ParameterValue=100
 [1020]
 ParameterName=Verify Configuration
 ObjectType=0x8
-SubNumber=0x03
+SubNumber=3
 
 [1020sub0]
 ParameterName=Highest sub-index supported
@@ -560,7 +561,7 @@ PDOMapping=0
 [1029]
 ParameterName=Error behavior
 ObjectType=0x8
-SubNumber=0x03
+SubNumber=3
 
 [1029sub0]
 ParameterName=Highest sub-index supported
@@ -589,7 +590,7 @@ PDOMapping=0
 [1400]
 ParameterName=Receive PDO 1 Communication Parameter
 ObjectType=0x9
-SubNumber=0x03
+SubNumber=3
 
 [1400sub0]
 ParameterName=Highest sub-index supported
@@ -619,7 +620,7 @@ ParameterValue=0x1
 [1401]
 ParameterName=Receive PDO 2 Communication Parameter
 ObjectType=0x9
-SubNumber=0x03
+SubNumber=3
 
 [1401sub0]
 ParameterName=Highest sub-index supported
@@ -649,7 +650,7 @@ ParameterValue=0x1
 [1402]
 ParameterName=Receive PDO 3 Communication Parameter
 ObjectType=0x9
-SubNumber=0x03
+SubNumber=3
 
 [1402sub0]
 ParameterName=Highest sub-index supported
@@ -679,7 +680,7 @@ ParameterValue=0x1
 [1403]
 ParameterName=Receive PDO 4 Communication Parameter
 ObjectType=0x9
-SubNumber=0x03
+SubNumber=3
 
 [1403sub0]
 ParameterName=Highest sub-index supported
@@ -709,7 +710,7 @@ ParameterValue=0x1
 [1404]
 ParameterName=Receive PDO 5 Communication Parameter
 ObjectType=0x9
-SubNumber=0x03
+SubNumber=3
 
 [1404sub0]
 ParameterName=Highest sub-index supported
@@ -738,7 +739,7 @@ PDOMapping=0
 [1405]
 ParameterName=Receive PDO 6 Communication Parameter
 ObjectType=0x9
-SubNumber=0x03
+SubNumber=3
 
 [1405sub0]
 ParameterName=Highest sub-index supported
@@ -767,7 +768,7 @@ PDOMapping=0
 [1406]
 ParameterName=Receive PDO 7 Communication Parameter
 ObjectType=0x9
-SubNumber=0x03
+SubNumber=3
 
 [1406sub0]
 ParameterName=Highest sub-index supported
@@ -796,7 +797,7 @@ PDOMapping=0
 [1407]
 ParameterName=Receive PDO 8 Communication Parameter
 ObjectType=0x9
-SubNumber=0x03
+SubNumber=3
 
 [1407sub0]
 ParameterName=Highest sub-index supported
@@ -825,7 +826,7 @@ PDOMapping=0
 [1600]
 ParameterName=Receive PDO 1 Mapping Parameter
 ObjectType=0x9
-SubNumber=0x09
+SubNumber=9
 
 [1600sub0]
 ParameterName=Highest sub-index supported
@@ -902,7 +903,7 @@ PDOMapping=0
 [1601]
 ParameterName=Receive PDO 2 Mapping Parameter
 ObjectType=0x9
-SubNumber=0x09
+SubNumber=9
 
 [1601sub0]
 ParameterName=Highest sub-index supported
@@ -980,7 +981,7 @@ PDOMapping=0
 [1602]
 ParameterName=Receive PDO 3 Mapping Parameter
 ObjectType=0x9
-SubNumber=0x09
+SubNumber=9
 
 [1602sub0]
 ParameterName=Highest sub-index supported
@@ -1058,7 +1059,7 @@ PDOMapping=0
 [1603]
 ParameterName=Receive PDO 4 Mapping Parameter
 ObjectType=0x9
-SubNumber=0x09
+SubNumber=9
 
 [1603sub0]
 ParameterName=Highest sub-index supported
@@ -1135,7 +1136,7 @@ PDOMapping=0
 [1604]
 ParameterName=Receive PDO 5 Mapping Parameter
 ObjectType=0x9
-SubNumber=0x09
+SubNumber=9
 
 [1604sub0]
 ParameterName=Highest sub-index supported
@@ -1212,7 +1213,7 @@ PDOMapping=0
 [1605]
 ParameterName=Receive PDO 6 Mapping Parameter
 ObjectType=0x9
-SubNumber=0x09
+SubNumber=9
 
 [1605sub0]
 ParameterName=Highest sub-index supported
@@ -1289,7 +1290,7 @@ PDOMapping=0
 [1606]
 ParameterName=Receive PDO 7 Mapping Parameter
 ObjectType=0x9
-SubNumber=0x09
+SubNumber=9
 
 [1606sub0]
 ParameterName=Highest sub-index supported
@@ -1366,7 +1367,7 @@ PDOMapping=0
 [1607]
 ParameterName=Receive PDO 8 Mapping Parameter
 ObjectType=0x9
-SubNumber=0x09
+SubNumber=9
 
 [1607sub0]
 ParameterName=Highest sub-index supported
@@ -1443,7 +1444,7 @@ PDOMapping=0
 [1800]
 ParameterName=Transmit PDO 1 Communication Parameter
 ObjectType=0x9
-SubNumber=0x06
+SubNumber=6
 
 [1800sub0]
 ParameterName=Highest sub-index supported
@@ -1497,7 +1498,7 @@ PDOMapping=0
 [1801]
 ParameterName=Transmit PDO 2 Communication Parameter
 ObjectType=0x9
-SubNumber=0x06
+SubNumber=6
 
 [1801sub0]
 ParameterName=Highest sub-index supported
@@ -1551,7 +1552,7 @@ PDOMapping=0
 [1802]
 ParameterName=Transmit PDO 3 Communication Parameter
 ObjectType=0x9
-SubNumber=0x06
+SubNumber=6
 
 [1802sub0]
 ParameterName=Highest sub-index supported
@@ -1605,7 +1606,7 @@ PDOMapping=0
 [1803]
 ParameterName=Transmit PDO 4 Communication Parameter
 ObjectType=0x9
-SubNumber=0x06
+SubNumber=6
 
 [1803sub0]
 ParameterName=Highest sub-index supported
@@ -1659,7 +1660,7 @@ PDOMapping=0
 [1804]
 ParameterName=Transmit PDO 5 Communication Parameter
 ObjectType=0x9
-SubNumber=0x06
+SubNumber=6
 
 [1804sub0]
 ParameterName=Highest sub-index supported
@@ -1712,7 +1713,7 @@ PDOMapping=0
 [1805]
 ParameterName=Transmit PDO 6 Communication Parameter
 ObjectType=0x9
-SubNumber=0x06
+SubNumber=6
 
 [1805sub0]
 ParameterName=Highest sub-index supported
@@ -1765,7 +1766,7 @@ PDOMapping=0
 [1806]
 ParameterName=Transmit PDO 7 Communication Parameter
 ObjectType=0x9
-SubNumber=0x06
+SubNumber=6
 
 [1806sub0]
 ParameterName=Highest sub-index supported
@@ -1818,7 +1819,7 @@ PDOMapping=0
 [1807]
 ParameterName=Transmit PDO 8 Communication Parameter
 ObjectType=0x9
-SubNumber=0x06
+SubNumber=6
 
 [1807sub0]
 ParameterName=Highest sub-index supported
@@ -1871,7 +1872,7 @@ PDOMapping=0
 [1A00]
 ParameterName=Transmit PDO 1 Mapping Parameter
 ObjectType=0x9
-SubNumber=0x09
+SubNumber=9
 
 [1A00sub0]
 ParameterName=Highest sub-index supported
@@ -1948,7 +1949,7 @@ PDOMapping=0
 [1A01]
 ParameterName=Transmit PDO 2 Mapping Parameter
 ObjectType=0x9
-SubNumber=0x09
+SubNumber=9
 
 [1A01sub0]
 ParameterName=Highest sub-index supported
@@ -2025,7 +2026,7 @@ PDOMapping=0
 [1A02]
 ParameterName=Transmit PDO 3 Mapping Parameter
 ObjectType=0x9
-SubNumber=0x09
+SubNumber=9
 
 [1A02sub0]
 ParameterName=Highest sub-index supported
@@ -2103,7 +2104,7 @@ PDOMapping=0
 [1A03]
 ParameterName=Transmit PDO 4 Mapping Parameter
 ObjectType=0x9
-SubNumber=0x09
+SubNumber=9
 
 [1A03sub0]
 ParameterName=Highest sub-index supported
@@ -2180,7 +2181,7 @@ PDOMapping=0
 [1A04]
 ParameterName=Transmit PDO 5 Mapping Parameter
 ObjectType=0x9
-SubNumber=0x09
+SubNumber=9
 
 [1A04sub0]
 ParameterName=Highest sub-index supported
@@ -2257,7 +2258,7 @@ PDOMapping=0
 [1A05]
 ParameterName=Transmit PDO 6 Mapping Parameter
 ObjectType=0x9
-SubNumber=0x09
+SubNumber=9
 
 [1A05sub0]
 ParameterName=Highest sub-index supported
@@ -2334,7 +2335,7 @@ PDOMapping=0
 [1A06]
 ParameterName=Transmit PDO 7 Mapping Parameter
 ObjectType=0x9
-SubNumber=0x09
+SubNumber=9
 
 [1A06sub0]
 ParameterName=Highest sub-index supported
@@ -2411,7 +2412,7 @@ PDOMapping=0
 [1A07]
 ParameterName=Transmit PDO 8 Mapping Parameter
 ObjectType=0x9
-SubNumber=0x09
+SubNumber=9
 
 [1A07sub0]
 ParameterName=Highest sub-index supported
@@ -2488,7 +2489,7 @@ PDOMapping=0
 [1F50]
 ParameterName=Program data
 ObjectType=0x8
-SubNumber=0x04
+SubNumber=4
 
 [1F50sub0]
 ParameterName=Highest sub-index supported
@@ -2502,34 +2503,31 @@ ObjFlags=1
 [1F50sub1]
 ParameterName=Program data bootloader/firmware
 ObjectType=0x7
-DataType=0x000F
+DataType=0x000f
 AccessType=rw
-DefaultValue=
 PDOMapping=0
 ObjFlags=1
 
 [1F50sub2]
 ParameterName=Program data NanoJ
 ObjectType=0x7
-DataType=0x000F
+DataType=0x000f
 AccessType=rw
-DefaultValue=
 PDOMapping=0
 ObjFlags=1
 
 [1F50sub3]
 ParameterName=Program data DataFlash
 ObjectType=0x7
-DataType=0x000F
+DataType=0x000f
 AccessType=rw
-DefaultValue=
 PDOMapping=0
 ObjFlags=1
 
 [1F51]
 ParameterName=Program control
 ObjectType=0x8
-SubNumber=0x04
+SubNumber=4
 
 [1F51sub0]
 ParameterName=Highest sub-index supported
@@ -2570,7 +2568,7 @@ ObjFlags=1
 [1F57]
 ParameterName=Program status
 ObjectType=0x8
-SubNumber=0x04
+SubNumber=4
 
 [1F57sub0]
 ParameterName=Highest sub-index supported
@@ -2613,9 +2611,8 @@ ParameterName=Error code
 ObjectType=0x7
 DataType=0x0006
 AccessType=ro
-DefaultValue=
 PDOMapping=1
-ObjFlags=1
+ObjFlags=0x1
 
 [6040]
 ParameterName=Controlword
@@ -2630,9 +2627,8 @@ ParameterName=Statusword
 ObjectType=0x7
 DataType=0x0006
 AccessType=ro
-DefaultValue=
 PDOMapping=1
-ObjFlags=1
+ObjFlags=0x1
 
 [6042]
 ParameterName=vl target velocity
@@ -2649,7 +2645,7 @@ DataType=0x0003
 AccessType=ro
 DefaultValue=0x0000
 PDOMapping=1
-ObjFlags=1
+ObjFlags=0x1
 
 [6044]
 ParameterName=vl velocity actual value
@@ -2658,12 +2654,12 @@ DataType=0x0003
 AccessType=ro
 DefaultValue=0x0000
 PDOMapping=1
-ObjFlags=1
+ObjFlags=0x1
 
 [6046]
 ParameterName=vl velocity min max amount
 ObjectType=0x8
-SubNumber=0x03
+SubNumber=3
 
 [6046sub0]
 ParameterName=Highest sub-index supported
@@ -2692,7 +2688,7 @@ PDOMapping=1
 [6048]
 ParameterName=vl velocity acceleration
 ObjectType=0x9
-SubNumber=0x03
+SubNumber=3
 
 [6048sub0]
 ParameterName=Highest sub-index supported
@@ -2721,7 +2717,7 @@ PDOMapping=1
 [6049]
 ParameterName=vl velocity deceleration
 ObjectType=0x9
-SubNumber=0x03
+SubNumber=3
 
 [6049sub0]
 ParameterName=Highest sub-index supported
@@ -2750,7 +2746,7 @@ PDOMapping=1
 [604A]
 ParameterName=vl velocity quick stop
 ObjectType=0x9
-SubNumber=0x03
+SubNumber=3
 
 [604Asub0]
 ParameterName=Highest sub-index supported
@@ -2779,7 +2775,7 @@ PDOMapping=1
 [604C]
 ParameterName=vl dimension factor
 ObjectType=0x8
-SubNumber=0x03
+SubNumber=3
 
 [604Csub0]
 ParameterName=Highest sub-index supported
@@ -2860,7 +2856,7 @@ DataType=0x0002
 AccessType=ro
 DefaultValue=0x00
 PDOMapping=1
-ObjFlags=1
+ObjFlags=0x1
 
 [6062]
 ParameterName=Position demand value
@@ -2869,25 +2865,23 @@ DataType=0x0004
 AccessType=ro
 DefaultValue=0x00000000
 PDOMapping=1
-ObjFlags=1
+ObjFlags=0x1
 
 [6063]
 ParameterName=Position actual internal value
 ObjectType=0x7
 DataType=0x0004
 AccessType=ro
-DefaultValue=
 PDOMapping=1
-ObjFlags=1
+ObjFlags=0x1
 
 [6064]
 ParameterName=Position actual value
 ObjectType=0x7
 DataType=0x0004
 AccessType=ro
-DefaultValue=
 PDOMapping=1
-ObjFlags=1
+ObjFlags=0x1
 
 [6065]
 ParameterName=Following error window
@@ -2929,7 +2923,7 @@ DataType=0x0004
 AccessType=ro
 DefaultValue=0x00000000
 PDOMapping=1
-ObjFlags=1
+ObjFlags=0x1
 
 [606C]
 ParameterName=Velocity actual value
@@ -2938,7 +2932,7 @@ DataType=0x0004
 AccessType=ro
 DefaultValue=0x00000000
 PDOMapping=1
-ObjFlags=1
+ObjFlags=0x1
 
 [606D]
 ParameterName=Velocity window
@@ -2979,7 +2973,7 @@ DataType=0x0003
 AccessType=ro
 DefaultValue=0x0000
 PDOMapping=1
-ObjFlags=1
+ObjFlags=0x1
 
 [6077]
 ParameterName=Torque actual value
@@ -2988,7 +2982,7 @@ DataType=0x0003
 AccessType=ro
 DefaultValue=0x0000
 PDOMapping=1
-ObjFlags=1
+ObjFlags=0x1
 
 [607A]
 ParameterName=Target Position
@@ -3001,7 +2995,7 @@ PDOMapping=1
 [607B]
 ParameterName=Position range limit
 ObjectType=0x8
-SubNumber=0x03
+SubNumber=3
 
 [607Bsub0]
 ParameterName=Highest sub-index supported
@@ -3040,7 +3034,7 @@ PDOMapping=1
 [607D]
 ParameterName=Software position limit
 ObjectType=0x8
-SubNumber=0x03
+SubNumber=3
 
 [607Dsub0]
 ParameterName=Highest sub-index supported
@@ -3135,7 +3129,7 @@ PDOMapping=1
 [608F]
 ParameterName=Position encoder resolution
 ObjectType=0x8
-SubNumber=0x03
+SubNumber=3
 
 [608Fsub0]
 ParameterName=Highest sub-index supported
@@ -3164,7 +3158,7 @@ PDOMapping=0
 [6091]
 ParameterName=Gear ratio
 ObjectType=0x8
-SubNumber=0x03
+SubNumber=3
 
 [6091sub0]
 ParameterName=Highest sub-index supported
@@ -3193,7 +3187,7 @@ PDOMapping=0
 [6092]
 ParameterName=Feed constant
 ObjectType=0x8
-SubNumber=0x03
+SubNumber=3
 
 [6092sub0]
 ParameterName=Highest sub-index supported
@@ -3226,11 +3220,12 @@ DataType=0x0002
 AccessType=rww
 DefaultValue=35
 PDOMapping=1
+ParameterValue=0
 
 [6099]
 ParameterName=Homing speed
 ObjectType=0x8
-SubNumber=0x03
+SubNumber=3
 
 [6099sub0]
 ParameterName=Highest sub-index supported
@@ -3267,7 +3262,7 @@ PDOMapping=1
 [60A4]
 ParameterName=Profile Jerk
 ObjectType=0x8
-SubNumber=0x05
+SubNumber=5
 
 [60A4sub0]
 ParameterName=Highest sub-index supported
@@ -3312,7 +3307,7 @@ PDOMapping=0
 [60C1]
 ParameterName=Interpolation data record
 ObjectType=0x8
-SubNumber=0x02
+SubNumber=2
 
 [60C1sub0]
 ParameterName=Highest sub-index supported
@@ -3333,7 +3328,7 @@ PDOMapping=1
 [60C2]
 ParameterName=Interpolation time period
 ObjectType=0x9
-SubNumber=0x03
+SubNumber=3
 
 [60C2sub0]
 ParameterName=Highest sub-index supported
@@ -3363,7 +3358,7 @@ PDOMapping=0
 [60C4]
 ParameterName=Interpolation data configuration
 ObjectType=0x9
-SubNumber=0x07
+SubNumber=7
 
 [60C4sub0]
 ParameterName=Highest sub-index supported
@@ -3454,7 +3449,7 @@ DataType=0x0004
 AccessType=ro
 DefaultValue=0x00000000
 PDOMapping=1
-ObjFlags=1
+ObjFlags=0x1
 
 [60FD]
 ParameterName=Digital Inputs
@@ -3463,12 +3458,12 @@ DataType=0x0007
 AccessType=ro
 DefaultValue=0x00000000
 PDOMapping=1
-ObjFlags=1
+ObjFlags=0x1
 
 [60FE]
 ParameterName=Digital Outputs
 ObjectType=0x8
-SubNumber=0x02
+SubNumber=2
 
 [60FEsub0]
 ParameterName=Highest sub-index supported
@@ -3501,7 +3496,7 @@ DataType=0x0007
 AccessType=ro
 DefaultValue=0x000003EF
 PDOMapping=1
-ObjFlags=1
+ObjFlags=0x1
 
 [6505]
 ParameterName=http drive catalogue address
@@ -3510,10 +3505,10 @@ DataType=0x0009
 AccessType=const
 DefaultValue=http://www.nanotec.de
 PDOMapping=0
-ObjFlags=1
+ObjFlags=0x1
 
 [ManufacturerObjects]
-SupportedObjects=0x49
+SupportedObjects=73
 1=0x2005
 2=0x2006
 3=0x2007
@@ -3599,7 +3594,7 @@ PDOMapping=0
 [2006]
 ParameterName=CANopen WheelConfig
 ObjectType=0x8
-SubNumber=0x03
+SubNumber=3
 
 [2006sub0]
 ParameterName=Highest sub-index supported
@@ -3628,7 +3623,7 @@ PDOMapping=0
 [2007]
 ParameterName=CANopen Config
 ObjectType=0x8
-SubNumber=0x02
+SubNumber=2
 
 [2007sub0]
 ParameterName=Highest sub-index supported
@@ -3721,7 +3716,7 @@ PDOMapping=0
 [2038]
 ParameterName=Brake controller timing
 ObjectType=0x8
-SubNumber=0x07
+SubNumber=7
 
 [2038sub0]
 ParameterName=Highest sub-index supported
@@ -3782,7 +3777,7 @@ PDOMapping=0
 [2039]
 ParameterName=Motor Currents
 ObjectType=0x8
-SubNumber=0x05
+SubNumber=5
 
 [2039sub0]
 ParameterName=Highest sub-index supported
@@ -3798,7 +3793,6 @@ ParameterName=I_d
 ObjectType=0x7
 DataType=0x0004
 AccessType=ro
-DefaultValue=
 PDOMapping=1
 ObjFlags=1
 
@@ -3807,7 +3801,6 @@ ParameterName=I_q
 ObjectType=0x7
 DataType=0x0004
 AccessType=ro
-DefaultValue=
 PDOMapping=1
 ObjFlags=1
 
@@ -3816,7 +3809,6 @@ ParameterName=I_a
 ObjectType=0x7
 DataType=0x0004
 AccessType=ro
-DefaultValue=
 PDOMapping=1
 ObjFlags=1
 
@@ -3825,14 +3817,13 @@ ParameterName=I_b
 ObjectType=0x7
 DataType=0x0004
 AccessType=ro
-DefaultValue=
 PDOMapping=1
 ObjFlags=1
 
 [203A]
 ParameterName=Homing on block configuration
 ObjectType=0x8
-SubNumber=0x03
+SubNumber=3
 
 [203Asub0]
 ParameterName=Highest sub-index supported
@@ -3861,7 +3852,7 @@ PDOMapping=0
 [203B]
 ParameterName=I2t Parameters
 ObjectType=0x8
-SubNumber=0x08
+SubNumber=8
 
 [203Bsub0]
 ParameterName=Highest sub-index supported
@@ -3908,7 +3899,6 @@ ParameterName=LimitedCurrent
 ObjectType=0x7
 DataType=0x0007
 AccessType=rw
-DefaultValue=
 PDOMapping=0
 
 [203Bsub6]
@@ -3924,7 +3914,6 @@ ParameterName=ActualResistance
 ObjectType=0x7
 DataType=0x0007
 AccessType=rw
-DefaultValue=
 PDOMapping=0
 
 [203D]
@@ -3948,13 +3937,12 @@ ParameterName=Encoder Alignment
 ObjectType=0x7
 DataType=0x0004
 AccessType=rw
-DefaultValue=
 PDOMapping=0
 
 [2051]
 ParameterName=Encoder Optimization
 ObjectType=0x8
-SubNumber=0x04
+SubNumber=4
 
 [2051sub0]
 ParameterName=Highest sub-index supported
@@ -4033,9 +4021,8 @@ ParameterName=Encoder Boot Value
 ObjectType=0x7
 DataType=0x0007
 AccessType=ro
-DefaultValue=
 PDOMapping=0
-ObjFlags=1
+ObjFlags=0x1
 
 [205B]
 ParameterName=Clock Direction or Clockwise/Counter Clockwise Mode
@@ -4116,7 +4103,7 @@ DataType=0x0007
 AccessType=ro
 DefaultValue=0x00000008
 PDOMapping=0
-ObjFlags=1
+ObjFlags=0x1
 
 [2102]
 ParameterName=Fieldbus Module Control
@@ -4129,7 +4116,7 @@ PDOMapping=0
 [2103]
 ParameterName=Fieldbus Module Status
 ObjectType=0x8
-SubNumber=0x03
+SubNumber=3
 
 [2103sub0]
 ParameterName=Highest sub-index supported
@@ -4154,7 +4141,6 @@ ParameterName=Fieldbus Module Enabled
 ObjectType=0x7
 DataType=0x0007
 AccessType=ro
-DefaultValue=
 PDOMapping=0
 ObjFlags=1
 
@@ -4173,7 +4159,7 @@ DataType=0x0007
 AccessType=ro
 DefaultValue=0x00000000
 PDOMapping=1
-ObjFlags=1
+ObjFlags=0x1
 
 [2302]
 ParameterName=NanoJ Error Code
@@ -4182,21 +4168,20 @@ DataType=0x0007
 AccessType=ro
 DefaultValue=0x00000000
 PDOMapping=1
-ObjFlags=1
+ObjFlags=0x1
 
 [230F]
 ParameterName=Uptime Seconds
 ObjectType=0x7
 DataType=0x0007
 AccessType=ro
-DefaultValue=
 PDOMapping=1
-ObjFlags=1
+ObjFlags=0x1
 
 [2310]
 ParameterName=NanoJ input data selection
 ObjectType=0x8
-SubNumber=0x11
+SubNumber=17
 
 [2310sub0]
 ParameterName=Highest sub-index supported
@@ -4354,7 +4339,7 @@ ObjFlags=1
 [2320]
 ParameterName=NanoJ output data selection
 ObjectType=0x8
-SubNumber=0x11
+SubNumber=17
 
 [2320sub0]
 ParameterName=Highest sub-index supported
@@ -4512,7 +4497,7 @@ ObjFlags=1
 [2330]
 ParameterName=NanoJ in/output data selection
 ObjectType=0x8
-SubNumber=0x11
+SubNumber=17
 
 [2330sub0]
 ParameterName=Highest sub-index supported
@@ -4670,7 +4655,7 @@ ObjFlags=1
 [2400]
 ParameterName=NanoJ Inputs
 ObjectType=0x8
-SubNumber=0x21
+SubNumber=33
 
 [2400sub0]
 ParameterName=Highest sub-index supported
@@ -4972,7 +4957,7 @@ ObjFlags=1
 [2410]
 ParameterName=NanoJ Init Parameters
 ObjectType=0x8
-SubNumber=0x21
+SubNumber=33
 
 [2410sub0]
 ParameterName=Highest sub-index supported
@@ -5241,7 +5226,7 @@ PDOMapping=1
 [2500]
 ParameterName=NanoJ Outputs
 ObjectType=0x8
-SubNumber=0x21
+SubNumber=33
 
 [2500sub0]
 ParameterName=Highest sub-index supported
@@ -5543,7 +5528,7 @@ ObjFlags=1
 [2600]
 ParameterName=NanoJ Debug Output
 ObjectType=0x8
-SubNumber=0x41
+SubNumber=65
 
 [2600sub0]
 ParameterName=Highest sub-index supported
@@ -6133,7 +6118,7 @@ ObjFlags=1
 [2701]
 ParameterName=Customer storage area
 ObjectType=0x8
-SubNumber=0xFF
+SubNumber=255
 
 [2701sub0]
 ParameterName=Highest sub-index supported
@@ -8178,7 +8163,7 @@ PDOMapping=0
 [2800]
 ParameterName=Bootloader and reboot settings
 ObjectType=0x8
-SubNumber=0x04
+SubNumber=4
 
 [2800sub0]
 ParameterName=Highest sub-index supported
@@ -8193,7 +8178,6 @@ ParameterName=Reboot command
 ObjectType=0x7
 DataType=0x0007
 AccessType=rw
-DefaultValue=
 PDOMapping=0
 
 [2800sub2]
@@ -8201,7 +8185,6 @@ ParameterName=Reboot delay time in ms
 ObjectType=0x7
 DataType=0x0007
 AccessType=rw
-DefaultValue=
 PDOMapping=0
 
 [2800sub3]
@@ -8223,7 +8206,7 @@ PDOMapping=1
 [320A]
 ParameterName=Motor drive sensor display open loop
 ObjectType=0x8
-SubNumber=0x05
+SubNumber=5
 
 [320Asub0]
 ParameterName=Highest sub-index supported
@@ -8268,7 +8251,7 @@ PDOMapping=0
 [320B]
 ParameterName=Motor drive sensor display closed loop
 ObjectType=0x8
-SubNumber=0x05
+SubNumber=5
 
 [320Bsub0]
 ParameterName=Highest sub-index supported
@@ -8313,7 +8296,7 @@ PDOMapping=0
 [3210]
 ParameterName=Motor drive parameter set
 ObjectType=0x8
-SubNumber=0x0B
+SubNumber=11
 
 [3210sub0]
 ParameterName=Highest sub-index supported
@@ -8406,7 +8389,7 @@ PDOMapping=0
 [3212]
 ParameterName=Motor drive flags
 ObjectType=0x8
-SubNumber=0x04
+SubNumber=4
 
 [3212sub0]
 ParameterName=Highest sub-index supported
@@ -8443,7 +8426,7 @@ PDOMapping=0
 [3220]
 ParameterName=Analog inputs
 ObjectType=0x8
-SubNumber=0x03
+SubNumber=3
 
 [3220sub0]
 ParameterName=Highest sub-index supported
@@ -8483,7 +8466,7 @@ PDOMapping=0
 [3225]
 ParameterName=Analogue inputs Switches
 ObjectType=0x8
-SubNumber=0x02
+SubNumber=2
 
 [3225sub0]
 ParameterName=Highest sub-index supported
@@ -8499,14 +8482,13 @@ ParameterName=Analogue input switch1
 ObjectType=0x7
 DataType=0x0006
 AccessType=ro
-DefaultValue=
 PDOMapping=1
 ObjFlags=1
 
 [3231]
 ParameterName=Flex IO Configuration
 ObjectType=0x8
-SubNumber=0x03
+SubNumber=3
 
 [3231sub0]
 ParameterName=Highest sub-index supported
@@ -8535,7 +8517,7 @@ PDOMapping=0
 [3240]
 ParameterName=Digital inputs control
 ObjectType=0x8
-SubNumber=0x09
+SubNumber=9
 
 [3240sub0]
 ParameterName=Highest sub-index supported
@@ -8612,7 +8594,7 @@ PDOMapping=1
 [3242]
 ParameterName=Digital Input Routing
 ObjectType=0x8
-SubNumber=0x25
+SubNumber=37
 
 [3242sub0]
 ParameterName=Highest sub-index supported
@@ -8913,7 +8895,7 @@ PDOMapping=1
 [3250]
 ParameterName=Digital outputs control
 ObjectType=0x8
-SubNumber=0x09
+SubNumber=9
 
 [3250sub0]
 ParameterName=Highest sub-index supported
@@ -8960,7 +8942,6 @@ ParameterName=Raw value
 ObjectType=0x7
 DataType=0x0007
 AccessType=rww
-DefaultValue=
 PDOMapping=1
 
 [3250sub6]
@@ -8990,7 +8971,7 @@ PDOMapping=1
 [3252]
 ParameterName=Digital Output Routing
 ObjectType=0x8
-SubNumber=0x06
+SubNumber=6
 
 [3252sub0]
 ParameterName=Highest sub-index supported
@@ -9043,7 +9024,7 @@ PDOMapping=1
 [3320]
 ParameterName=Read analogue input
 ObjectType=0x8
-SubNumber=0x03
+SubNumber=3
 
 [3320sub0]
 ParameterName=Number of analogue inputs
@@ -9059,7 +9040,6 @@ ParameterName=Analogue input 1
 ObjectType=0x7
 DataType=0x0004
 AccessType=ro
-DefaultValue=
 PDOMapping=1
 ObjFlags=1
 
@@ -9068,14 +9048,13 @@ ParameterName=Analogue input 2
 ObjectType=0x7
 DataType=0x0004
 AccessType=ro
-DefaultValue=
 PDOMapping=1
 ObjFlags=1
 
 [3321]
 ParameterName=Analogue input offset
 ObjectType=0x8
-SubNumber=0x03
+SubNumber=3
 
 [3321sub0]
 ParameterName=Number of analogue inputs
@@ -9104,7 +9083,7 @@ PDOMapping=0
 [3322]
 ParameterName=Analogue input pre-scaling
 ObjectType=0x8
-SubNumber=0x03
+SubNumber=3
 
 [3322sub0]
 ParameterName=Number of analogue inputs
@@ -9141,7 +9120,7 @@ PDOMapping=0
 [4012]
 ParameterName=HW information
 ObjectType=0x8
-SubNumber=0x02
+SubNumber=2
 
 [4012sub0]
 ParameterName=Highest sub-index supported
@@ -9157,14 +9136,13 @@ ParameterName=EEPROM size in bytes
 ObjectType=0x7
 DataType=0x0007
 AccessType=const
-DefaultValue=
 PDOMapping=0
 ObjFlags=1
 
 [4013]
 ParameterName=HW configuration
 ObjectType=0x8
-SubNumber=0x02
+SubNumber=2
 
 [4013sub0]
 ParameterName=Highest sub-index supported
@@ -9185,7 +9163,7 @@ PDOMapping=0
 [4014]
 ParameterName=Operating conditions
 ObjectType=0x8
-SubNumber=0x04
+SubNumber=4
 
 [4014sub0]
 ParameterName=Highest sub-index supported
@@ -9228,16 +9206,13 @@ ParameterName=Drive serial number
 ObjectType=0x7
 DataType=0x0009
 AccessType=ro
-DefaultValue=
 PDOMapping=0
-ObjFlags=1
+ObjFlags=0x1
 
 [4041]
 ParameterName=Device Id
 ObjectType=0x7
-DataType=0x000A
+DataType=0x000a
 AccessType=ro
-DefaultValue=            
 PDOMapping=0
-ObjFlags=1
-
+ObjFlags=0x1

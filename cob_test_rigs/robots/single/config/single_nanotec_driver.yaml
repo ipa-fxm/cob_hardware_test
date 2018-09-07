@@ -7,11 +7,12 @@ sync:
 
 defaults:
   eds_pkg: cob_test_rigs
-  eds_file: "robots/common/NP5-08.eds"
+  eds_file: "robots/common/NP5-08.dcf"
 #  publish: ['6040', '6041']
   vel_from_device: "v != v ? v=0 : v=smooth(deg2rad(obj606c/1000.0),v,0.3)" # for smoother current velocity in joint_states
   motor_layer:
-    switching_state: 4 # switched on - stop controller before switching modes
+    #switching_state: 4 # switched on - stop controller before switching modes
+    switching_state: 2 # Switch_On_Disabled - stop controller before switching modes
 #  dcf_overlay:
 #    "1016sub1" : "0x7F0064" # heartbeat timeout of 100 ms for master at 127
 
@@ -22,6 +23,7 @@ nodes:
     #publish: ["60FF"]       #velocity
     dcf_overlay: # "ObjectID": "ParameterValue" (both as strings)
       "6098": "35" # homing method
+      #"6060": "1" # mode of operation
       "6083": "200000" # profile acceleration, mgrad/sec^2
       "6084": "200000" # profile deceleration, mgrad/sec^2
       "60C5": "200000" # max acceleration, mgrad/sec^2
