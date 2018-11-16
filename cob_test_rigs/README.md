@@ -7,16 +7,20 @@ Start bringup:
 Testscript:
 
 `rosrun cob_test_rigs test_fdm.py`
-
 --------------------------------------------
 Für canopen *elmo console*:
-`cd ~/git/canopen_test_utils`
+
+`cd ~/git/robot_ws`
+
+Falls Verzeichnis nicht gefunden:
 
 `source devel/setup.bash`
 
+*Elmo console* ausführen:
+
 `rosrun canopen_test_utils canopen_elmo_console <can-device> <can-ID>`
 
-#Bsp.: rosrun canopen_test_utils canopen_elmo_console can0 1
+#Bsp.: `rosrun canopen_test_utils canopen_elmo_console can0 1`
 
 Sonstiges:
 
