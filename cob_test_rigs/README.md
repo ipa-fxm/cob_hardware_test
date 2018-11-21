@@ -1,3 +1,16 @@
+# ROS MASTER URI exportieren
+
+auf den gewünschten Roboter cob4-<roboter_nummer> setzen: 
+
+`export ROS_MASTER_URI=http://10.4.<roboter_nummer>.11:11311`
+
+eigene IP Adresse aus eth0:
+
+`ifconfig`
+
+eigene IP Adresse setzen:
+
+`export ROS_IP=<ip_address>`
 
 # FDM Teststand
 FDM auf Vorrichtung fixieren und auf korrekten Anschluss der Versorgungsleitungen prüfen. Violette Leitungen = 48 V; blaue Leitungen = 24 V.
@@ -9,33 +22,21 @@ Testscript:
 
 # Elmo console
 
-In richtiges Verzeichnis wechseln:
-`cd ~/git/robot_ws`
-
-Falls Verzeichnis nicht gefunden:
-`source devel/setup.bash`
-
 *Elmo console* ausführen:
 `rosrun canopen_test_utils canopen_elmo_console <can-device> <can-ID>`
 
 #Bsp.: `rosrun canopen_test_utils canopen_elmo_console can0 1`
 
-Sonstiges:
+Falls ROS die `canopen_test_utils` nicht findet, call:
+`source ~/git/robot_ws/devel/setup.bash`
+
+Um die FDMs zu initialisieren, call:
+`rosservice call /fdm/driver/init`
+
+Um die FDMs zu recovern, call:
 `rosservice call /fdm/driver/recover`
 
 --------------------------------------------
-# ROS MASTER URI setzen: 
-
-`export ROS_MASTER_URI=http://10.4.ROBOTER-Nr.11:11311`
-
-eigene IP Adresse aus eth0:
-
-`ifconfig`
-
-eigene IP Adresse setzen:
-
-`export ROS_IP`
-
 
 # Komponenten
 
