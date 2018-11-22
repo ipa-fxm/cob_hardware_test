@@ -22,7 +22,7 @@ nodes:
     #publish: ["60C1sub1"]   #trajectory
     #publish: ["60FF"]       #velocity
     dcf_overlay: # "ObjectID": "ParameterValue" (both as strings)
-      "6098": "35" # homing method
+      #"6098": "35" # homing method
       #"6060": "1" # mode of operation
       "6083": "200000" # profile acceleration, mgrad/sec^2
       "6084": "200000" # profile deceleration, mgrad/sec^2
