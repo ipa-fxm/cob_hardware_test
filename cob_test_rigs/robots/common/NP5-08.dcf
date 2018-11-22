@@ -3649,6 +3649,7 @@ DataType=0x0005
 AccessType=rw
 DefaultValue=0x7F
 PDOMapping=0
+ParameterValue=2
 
 [2030]
 ParameterName=Pole pair count
