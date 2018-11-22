@@ -2,10 +2,10 @@
 CreatedBy=Nanotec Electronic GmbH & Co. KG
 ModifiedBy=Nanotec Electronic GmbH & Co. KG
 Description=Motion controller
-CreationTime=05:19PM
-CreationDate=09-07-2018
-ModificationTime=05:19PM
-ModificationDate=09-07-2018
+CreationTime=08:36AM
+CreationDate=11-22-2018
+ModificationTime=08:36AM
+ModificationDate=11-22-2018
 FileName=NP5-08.dcf
 FileVersion=1
 FileRevision=1
@@ -3146,6 +3146,7 @@ DataType=0x0007
 AccessType=rw
 DefaultValue=2000
 PDOMapping=0
+ParameterValue=360000
 
 [608Fsub2]
 ParameterName=Motor revolutions
