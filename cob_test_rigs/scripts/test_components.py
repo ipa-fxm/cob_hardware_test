@@ -14,9 +14,11 @@ class MoveComponent():
         self.component = str(options.can_device)+"/"+str(options.component)
         self.reps = int(options.repetitions)
         self.default_vel = float(options.default_vel)
+        self.default_acc = float(options.default_acc)
  
     def run_test(self):
         rospy.set_param("/script_server/"+self.component+"/default_vel", self.default_vel)
+        rospy.set_param("/script_server/"+self.component+"/default_acc", self.default_acc)
         poses = rospy.get_param("/script_server/" +self.component+"/test")
         for i in range(0, self.reps):
             rospy.logwarn(">>>> Executing iteration %s of %s", str(i), str(self.reps))
@@ -61,6 +63,9 @@ if __name__ == '__main__':
     parser.add_option(
         '-v', '--default_vel', dest='default_vel', default=0.2,
         help="Overwrite default velocity of component")
+    parser.add_option(
+        '-a', '--default_acc', dest='default_acc', default=1.0,
+        help="Overwrite default acceleration of component")
     (options, args) = parser.parse_args()
     if not any([options.component]):
         parser.print_usage()
