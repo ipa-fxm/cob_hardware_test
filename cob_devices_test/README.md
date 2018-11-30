@@ -7,10 +7,17 @@ cob_devices_test
 
 Setup udev rules
 
+On Laptop 
 ```
 su robot
 sudo /home/support/git/robot_ws/src/cob_hardware_test/cob_devices_test/scripts/udev_joy.sh
 sudo /home/support/git/robot_ws/src/cob_hardware_test/cob_devices_test/scripts/udev_s300.sh
+```
+On Inbetriebnahmewagen
+```
+su robot
+sudo /u/robot/git/robot_ws/src/cob_hardware_test/cob_devices_test/scripts/udev_joy.sh
+sudo /u/robot/git/robot_ws/src/cob_hardware_test/cob_devices_test/scripts/udev_s300.sh
 ```
 
 Start launchfile in a new window
