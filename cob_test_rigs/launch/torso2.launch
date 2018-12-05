@@ -9,6 +9,7 @@
 		<arg name="can_device" value="$(arg can_device)"/>
 		<arg name="joint_names" value="['torso_2_joint','torso_3_joint']"/>
 		<arg name="default_vel" value="0.4"/>
+		<arg name="default_acc" value="1.0"/>
 	</include>
 
 </launch>

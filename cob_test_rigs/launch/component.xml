@@ -6,12 +6,14 @@
 	<arg name="can_device"/>
 	<arg name="joint_names"/>
 	<arg name="default_vel"/>
+	<arg name="default_acc"/>
 
 	<!-- upload default configuration parameters -->
 	<rosparam param="/script_server/$(arg can_device)/$(arg robot)/joint_names" subst_value="True">$(arg joint_names)</rosparam>
 	<param name="/script_server/$(arg can_device)/$(arg robot)/action_name" value="/$(arg can_device)/$(arg robot)/joint_trajectory_controller/follow_joint_trajectory"/>
 	<param name="/script_server/$(arg can_device)/$(arg robot)/service_ns" value="/$(arg can_device)/$(arg robot)/driver"/>
 	<param name="/script_server/$(arg can_device)/$(arg robot)/default_vel" value="$(arg default_vel)" type="double"/>
+	<param name="/script_server/$(arg can_device)/$(arg robot)/default_acc" value="$(arg default_acc)" type="double"/>
 	<rosparam command="load" ns="/script_server/$(arg can_device)/$(arg robot)/test" file="$(arg pkg_hardware_config)/robots/$(arg robot)/config/$(arg robot)_configurations.yaml"/>
 
 	<group ns="$(arg can_device)">
