@@ -1,133 +1,159 @@
-# ROS MASTER URI exportieren
+# Umgebungsvariablen
 
-auf den gewünschten Roboter cob4-<roboter_nummer> setzen: 
+## `ROS_MASTER_URI` exportieren
 
-`export ROS_MASTER_URI=http://10.4.<roboter_nummer>.11:11311`
+ - auf den gewünschten Roboter cob4-<roboter_nummer> setzen:  
+    `export ROS_MASTER_URI=http://10.4.<roboter_nummer>.11:11311`
 
-eigene IP Adresse aus eth0:
+## `ROS_IP` exportieren
 
-`ifconfig`
+ - eigene IP Adresse rausfinden, z.B. eth0 aus:  
+    `ifconfig`
 
-eigene IP Adresse setzen:
-
-`export ROS_IP=<ip_address>`
-
-# FDM Teststand
-FDM auf Vorrichtung fixieren und auf korrekten Anschluss der Versorgungsleitungen prüfen. Violette Leitungen = 48 V; blaue Leitungen = 24 V.
-Start bringup:
-`roslaunch cob_test_rigs fdm.launch can_id_steer:=3 can_id_drive:=4`
-
-Testscript:
-`rosrun cob_test_rigs test_fdm.py`
-
-# Elmo console
-
-*Elmo console* ausführen:
-`rosrun canopen_test_utils canopen_elmo_console <can-device> <can-ID>`
-
-#Bsp.: `rosrun canopen_test_utils canopen_elmo_console can0 1`
-
-Falls ROS die `canopen_test_utils` nicht findet, call:
-`source ~/git/robot_ws/devel/setup.bash`
-
-Um die FDMs zu initialisieren, call:
-`rosservice call /fdm/driver/init`
-
-Um die FDMs zu recovern, call:
-`rosservice call /fdm/driver/recover`
+ - eigene IP Adresse setzen:  
+    `export ROS_IP=<ip_address>`
 
 --------------------------------------------
 
-# Komponenten
+
+# FDM Teststand
+ - FDM auf Vorrichtung fixieren und auf korrekten Anschluss der Versorgungsleitungen prüfen.  
+   Violette Leitungen = 48 V; blaue Leitungen = 24 V.
+
+ - Start bringup:  
+    `roslaunch cob_test_rigs fdm.launch can_id_steer:=3 can_id_drive:=4`
+
+ - Testscript:  
+    `rosrun cob_test_rigs test_fdm.py`
+
+ - Wichtig: Auf korrekte Kommutierung/Drehrichtung der einzelnen Motoren achten!
+
+# ElmoConsole
+
+ - ElmoConsole ausführen:  
+   `rosrun canopen_test_utils canopen_elmo_console <can-device> <can-ID>`
+   
+   (Bsp.: `rosrun canopen_test_utils canopen_elmo_console can0 1`)
+
+ - FDM initialisieren:  
+    `rosservice call /fdm/driver/init`
+
+ - FDM recovern:  
+    `rosservice call /fdm/driver/recover`
+
+--------------------------------------------
+
+# Komponenten Teststand
 
 Hiermit können mehrere Achsen getestet werden.
 
-CAN_DEVICE: e.g. can0, can1,...
+## Variablen
+ - `CAN_DEVICE`: e.g. `can0`, `can1`,...
 
-COMPONENT: e.g. torso2, torso3, head2,...(NO FDM)
+ - `COMPONENT`: e.g. `torso2` (2DoF), `head3` (3DoF), `sensorring`,...(NO FDM)
 
-Start bringup:
-`roslaunch cob_test_rigs COMPONENT.launch [can_device:=can1]`
+## Starten
+ - Start bringup:  
+    `roslaunch cob_test_rigs COMPONENT.launch [can_device:=can1]`
 
-initialize:
-`rosservice call /CAN_DEVICE/COMPONENT/driver/[init/recover]`
+ - Initialisieren/Recovern:  
+    `rosservice call /CAN_DEVICE/COMPONENT/driver/[init/recover]`
 
-Testscript:
-`rosrun cob_test_rigs test_components.py -c COMPONENT -d CAN_DEVICE -r 1 -v 0.4`
+ - Testscript starten:  
+    `rosrun cob_test_rigs test_components.py -c COMPONENT -d CAN_DEVICE -r 1 -v 0.4`
+    
+    >Options:
+    >
+    >  -h, --help           show this help message and exit
+    >
+    >  -c COMPONENT, --component=COMPONENT
+    >                        Component that is going to be tested
+    >
+    >  -d CAN_DEVICE, --can_device=CAN_DEVICE
+    >                        CAN device the component is connected to
+    >
+    >  -r REPETITIONS, --reps=REPETITIONS
+    >                        Number of repetitions for each test cycle, default: 5
+    >
+    >  -v DEFAULT_VEL, --default_vel=DEFAULT_VEL
+    >                        Overwrite default velocity of component, default: 0.2
+    >
+    >  -a DEFAULT_ACC, --default_acc=DEFAULT_ACC
+    >                        Overwrite default acceleration of component, default: 1.0
 
->Options:
->
->  -h, --help           show this help message and exit
->
->  -c COMPONENT, --component=COMPONENT
->                        Component that is going to be tested
->
->  -d CAN_DEVICE, --can_device=CAN_DEVICE
->                        CAN device the component is connected to
->
->  -r REPETITIONS, --reps=REPETITIONS
->                        Number of repetitions for each test cycle
->
->  -v DEFAULT_VEL, --default_vel=DEFAULT_VEL
->                        Overwrite default velocity of component
+ - Start `rqt`:  
+    `rqt __ns:=CAN_DEVICE`
+    
+    Plugins of Interest: 
+    - `Controller Manager`: Plugins > Robot Tools > Controller Manager
+    - `Joint Trajectory Controller` (Slider) : Plugins > Robot Tools > Joint Trajectory Controller
+    - `Diagnostics Viewer`: Plugins > Robot Tools > Diagnostics Viewer
+    - `Plot`: Plugins > Visualization > Plot
 
-start rqt plugins (for slider):
-`rqt __ns:=CAN_DEVICE`
+ - Start `cob_console`:  
+    `rosrun cob_script_server cob_console`
 
-start cob_console:
-`rosrun cob_script_server cob_console`
+ - Usage `cob_console`:  
+    `sss.move("CAN_DEVICE/COMPONENT","test/CONFIG")`  
+    `sss.init("CAN_DEVICE/COMPONENT")`
 
-use in cob_console:
-`sss.move("CAN_DEVICE/COMPONENT","test/CONFIG")`
-`sss.init("CAN_DEVICE/COMPONENT")`
+ - Exit `cob_console`:  
+    `STRG + D`, then `ENTER`
 
-exit cob_console:
-STRG + D, then ENTER
+ - Verfügbare configs/poses:  
+    `rosparam get /script_server/CAN_DEVICE/COMPONENT`
 
-get available configs/poses:
-`rosparam get /script_server/CAN_DEVICE/COMPONENT`
+--------------------------------------------
 
-# SINGLE JOINT TESTING
+# Single Joint Teststand
 
 joints can only be moved one at a time.
 
-Start bringup:
-`roslaunch cob_test_rigs single_[elmo/schunk].launch can_device:=can0 can_id:=XX`
+ - Start bringup:  
+    `roslaunch cob_test_rigs single_[elmo/schunk].launch can_device:=can0 can_id:=XX`
+    
+    > can_ids:
+    > - torso: 31, 32, 33
+    > - head: 70, 71, 72
+    > - sensorring: 73
+    > - arm: 61, 62, 63, 64, 65, 66, 67
 
-can_ids:
- - torso: 31, 32, 33
- - head: 70, 71, 72
- - sensorring: 73
- - arm: 61, 62, 63, 64, 65, 66, 67
+ - Initialisieren/Recovern:  
+    `rosservice call /single_[elmo/schunk]/driver/[init/recover]`
 
-initialize/recover:
-`rosservice call /single_[elmo/schunk]/driver/[init/recover]`
+ - Start `rqt` (siehe auch Info oben):  
+    `rqt`
 
-start graphical tools:
-`rqt`
-
-Test JointTrajectoryController:
- 1. start controller (in rqt window)
-   - go to tab controller manager
-   - add joint_trajectory_controller from drop-down menu
-   - right-click on controller name -> press start (needs to be "running" afterwards)
-
+### Test JointTrajectoryController:
+ 1. start controller (in `rqt` window)
+    - go to tab `ControllerManager`
+    - add `joint_trajectory_controller` from drop-down menu
+    - right-click on controller name -> press start (needs to be "running" afterwards)
+   
  2. move single joint
-   - go to tab joint trajectory controller
-   - select joint_trajectory_controller from drop down
-   - press red button to activate slider (button turns green)
-   - move the slider or enter desired joint position [rad] directly
+    - go to tab `JointTrajectoryController`
+    - select `joint_trajectory_controller` from drop down
+    - press red button to activate slider (button turns green)
+    - move the slider or enter desired joint position [rad] directly
 
-Test JointPositionController/JointVelocityController
- 1. start controller (in rqt window)
-   - go to tab controller manager
-   - add [single_joint_position_controller/single_joint_velocity_controller] from drop-down menu
-   - righ-click on respective controller -> press start (needs to be "running" afterwards)
-   - make sure no other "commanding" controller is running at the same time ("joint_state_controller" can be "running")
+### Test JointPositionController/JointVelocityController
 
- 2. command sine function
-   - rosrun cob_test_rigs test_single_sine.py -a 0.1 -b 0.1 -c 0.0 -d 0.0 -n 0.0 __ns:=single_[elmo/schunk]/single_joint_[position/velocity]_controller
-   - set parameters a, b, c, d, n with caution!!!
-   - adjust value of __ns according to loaded controller
+ `namespace`: `single_[elmo/schunk]`  
+ `controller_name`: `single_joint_[position/velocity]_controller`
 
-
+ 1. start controller (in `rqt` window)
+    - go to tab `ControllerManager`
+    - add `controller_name` (s.o.) from drop-down menu
+    - righ-click on respective controller -> press start (needs to be "running" afterwards)
+    - make sure no other "commanding" controller is running at the same time ("joint_state_controller" can be "running")
+   
+ 2. command sine function (`y = a*sin(b*(x-c))+d`)  
+    - `rosrun cob_test_rigs test_single_sine.py -a 0.1 -b 0.1 -c 0.0 -d 0.0 -n 0.0 __ns:=<namespace>/<controller_name>`  
+    
+      > `a`: amplitude  
+      > `b`: frequency  
+      > `c`: phase  
+      > `d`: offset  
+      > `n`: repetitions  
+      > 
+      > set parameters a, b, c, d, n with caution!!!
