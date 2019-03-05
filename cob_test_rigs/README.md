@@ -161,3 +161,19 @@ joints can only be moved one at a time.
       > `n`: repetitions  
       > 
       > set parameters a, b, c, d, n with caution!!!
+
+--------------------------------------------
+
+# Cob Hand testen
+
+1. Configure Router to hands network address (10.4.x.1)
+2. Configure Routers WLAN to hands wlan (cob4-x-direct)
+3. Connect Hand with power
+4. Connect TestLaptop with Routers Lan interface
+5. TestLaptop: 
+  - `sudo ip addr add 10.4.x.11/24 broadcast 10.4.x.255 dev eth0`
+  - `export ROS_IP=10.4.x.11`
+  - `roslaunch cob_default_robot_config upload_param.launch robot:=cob4-x`
+  - `roslaunch cob_hardware_config upload_robot.launch robot:=cob4-16`
+  - `roslaunch cob_bringup dashboard.launch robot:=cob4-16 robot_env:=ipa-apartment`
+6. init, recover and move via dashboard
