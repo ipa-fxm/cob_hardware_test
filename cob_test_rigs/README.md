@@ -1,4 +1,14 @@
-# Umgebungsvariablen
+# Contents
+
+1. [Umgebungsvariablen](#env_var)
+2. [FDM Teststand](#fdm_test)
+3. [ElmoConsole](#elmo_console)
+4. [Komponenten Teststand](#comp_test)
+5. [Single Joint Teststand](#single_test)
+6. [Hand Teststand](#hand_test)
+
+
+# 1. Umgebungsvariablen <a name="env_var"></a>
 
 ## `ROS_MASTER_URI` exportieren
 
@@ -15,8 +25,8 @@
 
 --------------------------------------------
 
+# 2. FDM Teststand <a name="fdm_test"></a>
 
-# FDM Teststand
  - FDM auf Vorrichtung fixieren und auf korrekten Anschluss der Versorgungsleitungen prüfen.  
    Violette Leitungen = 48 V; blaue Leitungen = 24 V.
 
@@ -31,7 +41,8 @@
 
  - Wichtig: Auf korrekte Kommutierung/Drehrichtung der einzelnen Motoren achten!
 
-# ElmoConsole
+# 3. ElmoConsole <a name="elmo_console"></a>
+
  Achtung: ElmoConsole kann nicht zusammen mit ROS-Treiber verwendet werden.  
  Weitere Infos zu ElmoConsole gibt es unter https://github.com/mojin-robotics/cob4/blob/groovy_dev/ELMO_adjust_offset_remote.md  
 
@@ -42,7 +53,7 @@
 
 --------------------------------------------
 
-# Komponenten Teststand
+# 4. Komponenten Teststand <a name="comp_test"></a>
 
 Hiermit können mehrere Achsen getestet werden.
 
@@ -109,7 +120,7 @@ Hiermit können mehrere Achsen getestet werden.
 
 --------------------------------------------
 
-# Single Joint Teststand
+# 5. Single Joint Teststand <a name="single_test"></a>
 
 joints can only be moved one at a time.
 
@@ -164,16 +175,16 @@ joints can only be moved one at a time.
 
 --------------------------------------------
 
-# Cob Hand testen
+# 6. Hand Teststand <a name="hand_test"></a>
 
-1. Configure Router to hands network address (10.4.x.1)
-2. Configure Routers WLAN to hands wlan (cob4-x-direct)
-3. Connect Hand with power
-4. Connect TestLaptop with Routers Lan interface
-5. TestLaptop: 
-  - `sudo ip addr add 10.4.x.11/24 broadcast 10.4.x.255 dev eth0`
-  - `export ROS_IP=10.4.x.11`
-  - `roslaunch cob_default_robot_config upload_param.launch robot:=cob4-x`
-  - `roslaunch cob_hardware_config upload_robot.launch robot:=cob4-16`
-  - `roslaunch cob_bringup dashboard.launch robot:=cob4-16 robot_env:=ipa-apartment`
-6. init, recover and move via dashboard
+ 1. Configure router to hands network address (`10.4.x.1`)
+ 2. Configure router's WLAN to hands WLAN (`cob4-x-direct`)
+ 3. Connect hand to power
+ 4. Connect laptop with router's LAN interface
+ 5. On laptop: 
+     - `sudo ip addr add 10.4.x.11/24 broadcast 10.4.x.255 dev eth0`
+     - `export ROS_IP=10.4.x.11`
+     - `roslaunch cob_default_robot_config upload_param.launch robot:=cob4-x`
+     - `roslaunch cob_hardware_config upload_robot.launch robot:=cob4-16`
+     - `roslaunch cob_bringup dashboard.launch robot:=cob4-16 robot_env:=ipa-apartment`
+ 6. On laptop, init, recover and move via dashboard
