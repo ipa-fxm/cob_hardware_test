@@ -23,23 +23,22 @@
  - Start bringup:  
     `roslaunch cob_test_rigs fdm.launch can_id_steer:=3 can_id_drive:=4`
 
+ - FDM initialisieren/recovern (in neuem Terminal):  
+    `rosservice call /fdm/driver/[init/recover]`
+
  - Testscript (in neuem Terminal):  
     `rosrun cob_test_rigs test_fdm.py`
 
  - Wichtig: Auf korrekte Kommutierung/Drehrichtung der einzelnen Motoren achten!
 
 # ElmoConsole
+ Achtung: ElmoConsole kann nicht zusammen mit ROS-Treiber verwendet werden.  
+ Weitere Infos zu ElmoConsole gibt es unter https://github.com/mojin-robotics/cob4/blob/groovy_dev/ELMO_adjust_offset_remote.md  
 
  - ElmoConsole ausführen:  
    `rosrun canopen_test_utils canopen_elmo_console <can-device> <can-ID>`
    
    (Bsp.: `rosrun canopen_test_utils canopen_elmo_console can0 1`)
-
- - FDM initialisieren (geht nicht über ElmoConsole?):  
-    `rosservice call /fdm/driver/init`
-
- - FDM recovern (geht nicht über ElmoConsole?):  
-    `rosservice call /fdm/driver/recover`
 
 --------------------------------------------
 
@@ -48,9 +47,14 @@
 Hiermit können mehrere Achsen getestet werden.
 
 ## Variablen
+ Die folgenden Variablen müssen passend zum aktuellen Teststand gewählt werden.  
+ `CAN_DEVICE` ist abhängig vom mapping des USB-Dongles in Linux (`ifconfig`).  
+ `COMPONENT` ist die zu testende Hardwarekomponente.  
+ Achtung: FDM und Basis können nicht mit dieser Methode getested werden.  
+
  - `CAN_DEVICE`: e.g. `can0`, `can1`,...
 
- - `COMPONENT`: e.g. `torso2` (2DoF), (werden nicht mehr genutzt: `head3` (3DoF), `sensorring`,...(NO FDM))
+ - `COMPONENT`: e.g. `torso2` (2DoF), `head3` (3DoF), `sensorring`,...  
 
 ## Starten
  - Start bringup:  
