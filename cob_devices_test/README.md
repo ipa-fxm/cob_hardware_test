@@ -25,6 +25,9 @@ Check all wheel-colors.
 Select **Base_Test** in RVIZ, the laserscanner points should be visible in RVIZ (front-green, left-white, right-yellow).
 Check the correct assignment.
 
+### Fall-Sensors:
+Test Fall-Sensors with magnet.
+
 ### BMS:
 Check diagnostics in the `rqt_robot_monitor`
 
