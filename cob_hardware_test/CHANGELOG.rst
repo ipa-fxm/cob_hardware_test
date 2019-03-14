@@ -2,8 +2,8 @@
 Changelog for package cob_hardware_test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.1 (2019-03-14)
+------------------
 * Merge pull request `#7 <https://github.com/mojin-robotics/cob_hardware_test/issues/7>`_ from ipa-nhg/merge_hydro_dev
   Merge hydro
 * merge hydro

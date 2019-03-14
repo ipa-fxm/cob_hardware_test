@@ -2,8 +2,8 @@
 Changelog for package cob_devices_test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.1 (2019-03-14)
+------------------
 * Merge pull request `#22 <https://github.com/mojin-robotics/cob_hardware_test/issues/22>`_ from HannesBachter/patch-1
   test fall-sensors
 * Merge pull request `#25 <https://github.com/mojin-robotics/cob_hardware_test/issues/25>`_ from mojin-robotics/mojin-dev-team-patch-1

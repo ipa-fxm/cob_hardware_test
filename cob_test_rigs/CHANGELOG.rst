@@ -2,8 +2,8 @@
 Changelog for package cob_test_rigs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.1 (2019-03-14)
+------------------
 * Merge pull request `#28 <https://github.com/mojin-robotics/cob_hardware_test/issues/28>`_ from mojin-robotics/benmaidel-patch-1
   added cob hand test description
 * add ToC
