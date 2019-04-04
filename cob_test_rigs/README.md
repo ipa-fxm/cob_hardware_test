@@ -6,6 +6,7 @@
 4. [Komponenten Teststand](#comp_test)
 5. [Single Joint Teststand](#single_test)
 6. [Hand Teststand](#hand_test)
+7. [Cam3d Teststand](#cam3d_test)
 
 
 # 1. Umgebungsvariablen <a name="env_var"></a>
@@ -188,3 +189,17 @@ joints can only be moved one at a time.
      - `roslaunch cob_hardware_config upload_robot.launch robot:=cob4-16`
      - `roslaunch cob_bringup dashboard.launch robot:=cob4-16 robot_env:=ipa-apartment`
  6. On laptop, init, recover and move via dashboard
+
+--------------------------------------------
+
+# 7. Cam3d Teststand <a name="cam3d_test"></a>
+
+## Intel Realsense D435
+
+ 1. Connect the camera to a USB3.0 port
+ 2. Query the serial number of the camera
+    `rs-enumerate-devices |grep Serial`
+ 3. Start the camera driver
+    `roslaunch mojin_bringup cam3d_d435_rgbd.launch robot:=jan name:=sensorring_cam3d serial_no:=SERIALNUMBER`
+ 4. Verify Image and PointCloud2 in rviz
+    `roslaunch cob_test_rigs cam3d_d435_rviz.launch`
