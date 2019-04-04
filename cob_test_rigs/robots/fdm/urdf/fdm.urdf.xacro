@@ -9,6 +9,9 @@
   <!-- fdm -->
   <xacro:include filename="$(find cob_description)/urdf/drive_wheel/drive_wheel.urdf.xacro" />
 
+  <xacro:property name="drive_vel" value="19.95" />
+  <xacro:property name="steer_vel" value="12.00" /> <!-- Controller: 10.0, Driver: 12.0, Elmo: 15.0 -->
+
   <link name="world" />
 
   <!-- composition of the robot -->
