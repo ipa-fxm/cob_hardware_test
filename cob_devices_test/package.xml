@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>cob_devices_test</name>
-  <version>0.1.1</version>
+  <version>0.1.2</version>
   <description>The cob_devices_test package</description>
 
   <maintainer email="hyb@mojin-robotics.de">HannesBachter</maintainer>

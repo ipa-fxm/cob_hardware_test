@@ -2,8 +2,8 @@
 Changelog for package cob_test_rigs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.2 (2019-04-05)
+------------------
 * Merge pull request `#31 <https://github.com/mojin-robotics/cob_hardware_test/issues/31>`_ from fmessmer/cam3d_test_rig_d435
   add basic test rig for cam3d d435
 * add basic test rig for cam3d d435
