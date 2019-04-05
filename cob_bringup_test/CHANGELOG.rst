@@ -2,6 +2,9 @@
 Changelog for package cob_bringup_test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.1.1 (2019-03-14)
 ------------------
 * Merge pull request `#9 <https://github.com/mojin-robotics/cob_hardware_test/issues/9>`_ from ipa-nhg-sa/indigo_dev

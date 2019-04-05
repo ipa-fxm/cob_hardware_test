@@ -2,6 +2,9 @@
 Changelog for package cob_hardware_test_core
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.1.1 (2019-03-14)
 ------------------
 * fix dependencies

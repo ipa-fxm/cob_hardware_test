@@ -2,6 +2,16 @@
 Changelog for package cob_test_rigs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#31 <https://github.com/mojin-robotics/cob_hardware_test/issues/31>`_ from fmessmer/cam3d_test_rig_d435
+  add basic test rig for cam3d d435
+* add basic test rig for cam3d d435
+* Merge pull request `#30 <https://github.com/mojin-robotics/cob_hardware_test/issues/30>`_ from fmessmer/steer_joint_max_vel
+  reduce steer joint max vel
+* reduce steer joint max vel
+* Contributors: Felix Messmer, fmessmer
+
 0.1.1 (2019-03-14)
 ------------------
 * Merge pull request `#28 <https://github.com/mojin-robotics/cob_hardware_test/issues/28>`_ from mojin-robotics/benmaidel-patch-1
