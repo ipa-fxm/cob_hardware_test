@@ -4,6 +4,7 @@ This README lists several tools to investigate potential problems with the Intel
 1.1. [SysLog](#sys_log)
 1.2. [CPU Temperature](#cpu_temp)
 1.3. [HD Usage](#hd_use)
+1.4 [CPU Freq.](#cpu_freq)
 2. [StressTest](#stress)
 2.1. [MemTest](#mem_test)
 2.2. [StressTest](#stress_test)
@@ -22,6 +23,10 @@ watch sensors
 # 1.3. HD Usage <a name="hd_use"></a>
 ```
 df -h
+```
+# 1.4. CPU Frequency <a name="cpu_freq"></a>
+```
+watch "lscpu | grep MHz"
 ```
 
 # 2. StressTest <a name="stress"></a>
