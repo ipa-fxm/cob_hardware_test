@@ -1,20 +1,25 @@
 This README lists several tools to investigate potential problems with the Intel NUC PC hardware.
 
-1. [Diagnose](#diag)  
-1.1. [SysLog](#sys_log)  
-1.2. [Kernel Messages](#dmesg)  
-1.3. [Machine Check Events](#mcelog)  
-1.4. [CPU Freq.](#cpu_freq)  
-1.5. [CPU Performance](#cpu_perf)  
-1.6. [Process Monitoring](#proc_monitor)  
-1.7. [CPU Temperature](#cpu_temp)  
-1.8. [HD Usage](#hd_use)  
-1.9. [Network Load](#iftop)  
-1.10. [Network Performance](#net_perf)  
+1. [Diagnose](#diag)
+1.1. [SysLog](#sys_log)
+1.2. [Kernel Messages](#dmesg)
+1.3. [Machine Check Events](#mcelog)
+1.4. [CPU Freq.](#cpu_freq)
+1.5. [CPU Performance](#cpu_perf)
+1.6. [Process Monitoring](#proc_monitor)
+1.7. [CPU Temperature](#cpu_temp)
+1.8. [HD Usage](#hd_use)
+1.9. [Network Load](#iftop)
+1.10. [Network Performance](#net_perf)
 
-2. [StressTest](#stress)  
-2.1. [MemTest](#mem_test)  
-2.2. [StressTest](#stress_test)  
+2. [StressTest](#stress)
+2.1. [MemTest](#mem_test)
+2.2. [StressTest](#stress_test)
+2.2.1. [Default](#default_stress_test)
+2.2.2. [All stressors](#all_stress_test)
+2.2.3. [Aggressive stressors](#aggressive_stress_test)
+2.2.4. [Hot CPU](#hot_stress_test)
+2.2.5. [Memory pressure](#mem_stress_test)
 
 # 1. Diagnose <a name="diag"/>
 ## 1.1. SysLog <a name="sys_log"/>
@@ -77,6 +82,23 @@ sudo memtester 1024 5
 ```
 
 ## 2.2. StressTest <a name="stress_test"/>
+### 2.2.1. Default <a name="default_stress_test"/>
 ```
-stress-ng -c 1 -m 1
+stress-ng --cpu 4 --io 4 --vm 2
+```
+### 2.2.2. All stressors <a name="all_stress_test"/>
+```
+stress-ng --all 4
+```
+### 2.2.3. Aggressive stressors <a name="aggressive_stress_test"/>
+```
+sudo stress-ng --all 4 --aggressive
+```
+### 2.2.4. Hot CPU <a name="hot_stress_test"/>
+```
+stress-ng --matrix 0 --matrix-size 64 --tz
+```
+### 2.2.5. Memory pressure <a name="mem_stress_test"/>
+```
+stress-ng --brk 2 --stack 2 --bigheap 2
 ```
