@@ -52,6 +52,7 @@ top -H
 htop
 ps fax
 ```
+**HINTS**: `top -H` then sort for Status by pressing: `f`, on S = Process Status press `s`, then `Q` and reverse sort order with `R`
 
 ## 1.7. CPU Temperature <a name="cpu_temp"/>
 ```
