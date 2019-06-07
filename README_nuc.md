@@ -19,6 +19,7 @@ This README lists several tools to investigate potential problems with the Intel
     + [2.2.3. Aggressive stressors <a name="aggressive_stress_test"/>](#223-aggressive-stressors--a-name--aggressive-stress-test---)
     + [2.2.4. Hot CPU <a name="hot_stress_test"/>](#224-hot-cpu--a-name--hot-stress-test---)
     + [2.2.5. Memory pressure <a name="mem_stress_test"/>](#225-memory-pressure--a-name--mem-stress-test---)
+    + [2.2.6  High load but low CPU <a name="load_stress_test"/>](#226-high-load-but-low-cpu--a-name--load-stress-test---)
 
 # 1. Diagnose <a name="diag"/>
 ## 1.1. SysLog <a name="sys_log"/>
