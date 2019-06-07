@@ -102,3 +102,7 @@ stress-ng --matrix 0 --matrix-size 64 --tz
 ```
 stress-ng --brk 2 --stack 2 --bigheap 2
 ```
+### 2.2.6. High load but low CPU <a name="load_stress_test"/>
+```
+stress-ng -c 20 -l 10
+```
