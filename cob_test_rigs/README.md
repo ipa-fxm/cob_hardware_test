@@ -1,32 +1,47 @@
-# Contents
+# cob4 test-rigs
 
-1. [Umgebungsvariablen](#env_var)
-2. [FDM Teststand](#fdm_test)
-3. [ElmoConsole](#elmo_console)
-4. [Komponenten Teststand](#comp_test)
-5. [Single Joint Teststand](#single_test)
-6. [Hand Teststand](#hand_test)
-7. [Cam3d Teststand](#cam3d_test)
+## Contents
+
+- [Umgebungsvariablen](#env_var)
+- [ElmoConsole](#elmo_console)
+
+Teststände
+- [FDM Teststand](#fdm_test)
+- [Multi Joint Teststand](#comp_test)
+- [Single Joint Teststand](#single_test)
+- [Hand Teststand](#hand_test)
+- [Cam3d Teststand](#cam3d_test)
 
 
-# 1. Umgebungsvariablen <a name="env_var"></a>
+## Umgebungsvariablen <a name="env_var"></a>
 
-## `ROS_MASTER_URI` exportieren
+### `ROS_MASTER_URI` exportieren
 
  - auf den gewünschten Roboter cob4-<roboter_nummer> setzen:  
     `export ROS_MASTER_URI=http://10.4.<roboter_nummer>.11:11311`
 
-## `ROS_IP` exportieren
+### `ROS_IP` exportieren
 
  - eigene IP Adresse rausfinden, z.B. eth0 aus:  
     `ifconfig`
 
  - eigene IP Adresse setzen:  
     `export ROS_IP=<ip_address>`
+    
+## ElmoConsole <a name="elmo_console"></a>
+
+ Achtung: ElmoConsole kann nicht zusammen mit ROS-Treiber verwendet werden.  
+ Weitere Infos zu ElmoConsole gibt es unter https://github.com/mojin-robotics/cob4/blob/groovy_dev/ELMO_adjust_offset_remote.md  
+
+ - ElmoConsole ausführen:  
+   `rosrun canopen_test_utils canopen_elmo_console <can-device> <can-ID>`
+   
+   (Bsp.: `rosrun canopen_test_utils canopen_elmo_console can0 1`)
 
 --------------------------------------------
+## Teststände
 
-# 2. FDM Teststand <a name="fdm_test"></a>
+### FDM Teststand <a name="fdm_test"></a>
 
  - FDM auf Vorrichtung fixieren und auf korrekten Anschluss der Versorgungsleitungen prüfen.  
    Violette Leitungen = 48 V; blaue Leitungen = 24 V.
@@ -42,23 +57,13 @@
 
  - Wichtig: Auf korrekte Kommutierung/Drehrichtung der einzelnen Motoren achten!
 
-# 3. ElmoConsole <a name="elmo_console"></a>
-
- Achtung: ElmoConsole kann nicht zusammen mit ROS-Treiber verwendet werden.  
- Weitere Infos zu ElmoConsole gibt es unter https://github.com/mojin-robotics/cob4/blob/groovy_dev/ELMO_adjust_offset_remote.md  
-
- - ElmoConsole ausführen:  
-   `rosrun canopen_test_utils canopen_elmo_console <can-device> <can-ID>`
-   
-   (Bsp.: `rosrun canopen_test_utils canopen_elmo_console can0 1`)
-
 --------------------------------------------
 
-# 4. Komponenten Teststand <a name="comp_test"></a>
+### Multi Joint Teststand <a name="comp_test"></a>
 
 Hiermit können mehrere Achsen getestet werden.
 
-## Variablen
+#### Variablen
  Die folgenden Variablen müssen passend zum aktuellen Teststand gewählt werden.  
  `CAN_DEVICE` ist abhängig vom mapping des USB-Dongles in Linux (`ifconfig`).  
  `COMPONENT` ist die zu testende Hardwarekomponente.  
@@ -68,7 +73,7 @@ Hiermit können mehrere Achsen getestet werden.
 
  - `COMPONENT`: e.g. `torso2` (2DoF), `head3` (3DoF), `sensorring`,...  
 
-## Starten
+#### Starten
  - Start bringup:  
     `roslaunch cob_test_rigs COMPONENT.launch [can_device:=can1]`
 
@@ -121,7 +126,7 @@ Hiermit können mehrere Achsen getestet werden.
 
 --------------------------------------------
 
-# 5. Single Joint Teststand <a name="single_test"></a>
+### Single Joint Teststand <a name="single_test"></a>
 
 joints can only be moved one at a time.
 
@@ -140,7 +145,7 @@ joints can only be moved one at a time.
  - Start `rqt` (siehe auch Info oben):  
     `rqt`
 
-### Test JointTrajectoryController:
+##### Test JointTrajectoryController:
  1. start controller (in `rqt` window)
     - go to tab `ControllerManager`
     - add `joint_trajectory_controller` from drop-down menu
@@ -152,7 +157,7 @@ joints can only be moved one at a time.
     - press red button to activate slider (button turns green)
     - move the slider or enter desired joint position [rad] directly
 
-### Test JointPositionController/JointVelocityController
+##### Test JointPositionController/JointVelocityController
 
  `namespace`: `single_[elmo/schunk]`  
  `controller_name`: `single_joint_[position/velocity]_controller`
@@ -176,7 +181,7 @@ joints can only be moved one at a time.
 
 --------------------------------------------
 
-# 6. Hand Teststand <a name="hand_test"></a>
+### Hand Teststand <a name="hand_test"></a>
 
  1. Configure router to hands network address (`10.4.x.1`)
  2. Configure router's WLAN to hands WLAN (`cob4-x-direct`)
@@ -192,9 +197,9 @@ joints can only be moved one at a time.
 
 --------------------------------------------
 
-# 7. Cam3d Teststand <a name="cam3d_test"></a>
+### Cam3d Teststand <a name="cam3d_test"></a>
 
-## Intel Realsense D435
+#### Intel Realsense D435
 
  1. Connect the camera to a USB3.0 port
  2. Query the serial number of the camera
