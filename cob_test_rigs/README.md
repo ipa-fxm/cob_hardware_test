@@ -47,16 +47,32 @@ Teststände
    Violette Leitungen = 48 V; blaue Leitungen = 24 V.
 
  - Start bringup:  
-    `roslaunch cob_test_rigs fdm.launch can_id_steer:=3 can_id_drive:=4`
+    `roslaunch cob_test_rigs fdm.launch can_id_steer:=<can-ID> can_id_drive:=<can-ID>`  
+    Bsp.: `roslaunch cob_test_rigs fdm.launch can_id_steer:=3 can_id_drive:=4`
 
  - FDM initialisieren/recovern (in neuem Terminal):  
-    `rosservice call /fdm/driver/[init/recover]`
+    `rosservice call /fdm/driver/init`  
+    `rosservice call /fdm/driver/recover`
 
  - Testscript (in neuem Terminal):  
     `rosrun cob_test_rigs test_fdm.py`
 
  - Wichtig: Auf korrekte Kommutierung/Drehrichtung der einzelnen Motoren achten!
-
+ 
+ - Für Diagnostics:   
+    `roslaunch mojin_bringup diagnostics_aggregator.launch`
+    
+    `rostopic echo /diagnostics`
+    
+ - FDMs eingebaut in Basis aktivieren:  
+    `roslaunch mojin_bringup base_solo.launch robot:=<roboter_nummer>`  
+    Bsp.: `roslaunch mojin_bringup base_solo.launch robot:=cob4-21`
+    
+    `rosservice call /base/driver/init`  
+    `rosservice call /base/driver/recover`  
+    
+    `rosrun cob_dashboard cob_dashboard`
+    
 --------------------------------------------
 
 ### Multi Joint Teststand <a name="comp_test"></a>
