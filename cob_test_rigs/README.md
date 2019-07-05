@@ -7,7 +7,7 @@
 
 Teststände
 - [FDM Teststand](#fdm_test)
-- [Multi Joint Teststand](#comp_test)
+- [Multi Joint Teststand (Torsogelenk)](#comp_test)
 - [Single Joint Teststand](#single_test)
 - [Hand Teststand](#hand_test)
 - [Cam3d Teststand](#cam3d_test)
@@ -77,11 +77,11 @@ Teststände
 
 ### Multi Joint Teststand <a name="comp_test"></a>
 
-Hiermit können mehrere Achsen getestet werden.
+Hiermit können mehrere Achsen gleichzeitig bewegt werden (z.B. Torsogelenk).
 
 #### Variablen
  Die folgenden Variablen müssen passend zum aktuellen Teststand gewählt werden.  
- `CAN_DEVICE` ist abhängig vom mapping des USB-Dongles in Linux (`ifconfig`).  
+ `CAN_DEVICE` ist abhängig vom mapping des USB-Dongles in Linux (`ifconfig`), aber in den allermeisten Fällen `can0`.  
  `COMPONENT` ist die zu testende Hardwarekomponente.  
  Achtung: FDM und Basis können nicht mit dieser Methode getested werden.  
 
@@ -91,7 +91,7 @@ Hiermit können mehrere Achsen getestet werden.
 
 #### Starten
  - Start bringup:  
-    `roslaunch cob_test_rigs COMPONENT.launch [can_device:=can1]`
+    `roslaunch cob_test_rigs COMPONENT.launch [can_device:=can0]`
 
  - Initialisieren/Recovern:  
     `rosservice call /CAN_DEVICE/COMPONENT/driver/[init/recover]`
