@@ -7,7 +7,7 @@
 
 Teststände
 - [FDM Teststand](#fdm_test)
-- [Multi Joint Teststand](#comp_test)
+- [Multi Joint Teststandb (Torsogelenk)](#comp_test)
 - [Single Joint Teststand](#single_test)
 - [Hand Teststand](#hand_test)
 - [Cam3d Teststand](#cam3d_test)
@@ -77,7 +77,7 @@ Teststände
 
 ### Multi Joint Teststand <a name="comp_test"></a>
 
-Hiermit können mehrere Achsen getestet werden.
+Hiermit können mehrere Achsen getestet werden. Wie zum Beispiel im Torsogelenk der Fall.
 
 #### Variablen
  Die folgenden Variablen müssen passend zum aktuellen Teststand gewählt werden.  
