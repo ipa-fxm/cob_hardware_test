@@ -51,7 +51,7 @@ Teststände
  - Candump File:
    `cat <candump_file> | rosrun canopen_test_utils readable.py elmo_mapping`
    
-   (Bsp.: `cat test.dump | rosrun canopen_test_utils readable.py elmo_mapping`
+   (Bsp.: `cat candump.log | rosrun canopen_test_utils readable.py elmo_mapping`
 
 
 --------------------------------------------
