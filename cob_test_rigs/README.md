@@ -4,6 +4,7 @@
 
 - [Umgebungsvariablen](#env_var)
 - [ElmoConsole](#elmo_console)
+- [ReadableCanDump](#readable_candump)
 
 Teststände
 - [FDM Teststand](#fdm_test)
@@ -37,6 +38,21 @@ Teststände
    `rosrun canopen_test_utils canopen_elmo_console <can-device> <can-ID>`
    
    (Bsp.: `rosrun canopen_test_utils canopen_elmo_console can0 1`)
+   
+## ReadableCanDump <a name="readable_candump"></a>
+
+ Candump in lesbarer Version ausgeben  
+
+ - Live Betrieb:  
+   `candump <can-ID> | rosrun canopen_test_utils readable.py elmo_mapping`
+   
+   (Bsp.: `candump can0 | rosrun canopen_test_utils readable.py elmo_mapping`)
+   
+ - Candump File:
+   `cat <candump_file> | rosrun canopen_test_utils readable.py elmo_mapping`
+   
+   (Bsp.: `cat test.dump | rosrun canopen_test_utils readable.py elmo_mapping`
+
 
 --------------------------------------------
 ## Teststände
