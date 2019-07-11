@@ -38,8 +38,15 @@ Teststände
    `rosrun canopen_test_utils canopen_elmo_console <can-device> <can-ID>`
    
    (Bsp.: `rosrun canopen_test_utils canopen_elmo_console can0 1`)
+
+## CanDump erstellen <a name="candump"></a>
+
+ - Candump aufnehmen  
+   `candump -l -t A -s 0 can1`
+   - wird gespeichert in momentanes Verzeichnis unter ``candump-<Aktuelles-Datum>.log``
+   - ``can1`` evtl. durch korrekte CAN-ID ersetzen
    
-## ReadableCanDump <a name="readable_candump"></a>
+## CanDump übersetzen (Elmo) <a name="readable_candump"></a>
 
  Candump in lesbarer Version ausgeben  
 
