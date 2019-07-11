@@ -42,25 +42,27 @@ Teststände
 ## CanDump erstellen <a name="candump"></a>
 
  - Candump aufnehmen  
-   `candump -l -t A -s 0 can1`
-   - wird gespeichert in momentanes Verzeichnis unter ``candump-<Aktuelles-Datum>.log``
-   - ``can1`` evtl. durch korrekte CAN-ID ersetzen
+   `candump -l -t A -s 0 can0`
+   - wird gespeichert in momentanes Verzeichnis unter `candump-<Aktuelles-Datum>.log`
+   - `can0` evtl. durch korrekte CAN-ID ersetzen
+ - ausführlicher Candump (inkl. Error)  
+   `candump -l can0,0:0,#FFFFFFFF`
    
 ## CanDump übersetzen (Elmo) <a name="readable_candump"></a>
+Candump in lesbarer Version ausgeben  
 
- Candump in lesbarer Version ausgeben  
-
- - Live Betrieb:  
-   `candump <can-ID> | rosrun canopen_test_utils readable.py elmo_mapping`
-   
+ - Live übersetzen und anzeigen:  
+   `candump <can-ID> | rosrun canopen_test_utils readable.py elmo_mapping`  
    (Bsp.: `candump can0 | rosrun canopen_test_utils readable.py elmo_mapping`)
    
- - Candump File:
-   `cat <candump_file> | rosrun canopen_test_utils readable.py elmo_mapping`
-   
+ - Candump File übersetzen und anzeigen:  
+   `cat <candump_file> | rosrun canopen_test_utils readable.py elmo_mapping`  
    (Bsp.: `cat candump.log | rosrun canopen_test_utils readable.py elmo_mapping`
-
-
+   
+ - Candump File übersetzen und in Datei speichern:  
+   `cat <candump_file> | rosrun canopen_test_utils readable.py elmo_mapping > <candump_file_readable.log)`  
+   (Bsp.: `cat candump.log | rosrun canopen_test_utils readable.py elmo_mapping > readable.log`)
+   
 --------------------------------------------
 ## Teststände
 
