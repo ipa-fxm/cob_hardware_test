@@ -1,14 +1,16 @@
 # cob4 test-rigs
 
-## Contents
+## Content
 
+Allgemeines
 - [Umgebungsvariablen](#env_var)
 - [ElmoConsole](#elmo_console)
-- [ReadableCanDump](#readable_candump)
+- [CanDumpErstellen](#record_candump)
+- [CanDumpÜbersetzen](#readable_candump)
 
 Teststände
 - [FDM Teststand](#fdm_test)
-- [Multi Joint Teststand (Torsogelenk)](#comp_test)
+- [COB4-Aktoren Teststand](#comp_test)
 - [Single Joint Teststand](#single_test)
 - [Hand Teststand](#hand_test)
 - [Cam3d Teststand](#cam3d_test)
@@ -35,24 +37,24 @@ Teststände
  Weitere Infos zu ElmoConsole gibt es unter https://github.com/mojin-robotics/cob4/blob/groovy_dev/ELMO_adjust_offset_remote.md  
 
  - ElmoConsole ausführen:  
-   `rosrun canopen_test_utils canopen_elmo_console <can-device> <can-ID>`
+   `rosrun canopen_test_utils canopen_elmo_console <CAN_DEVICE> <CAN-ID>`
    
    (Bsp.: `rosrun canopen_test_utils canopen_elmo_console can0 1`)
 
-## CanDump erstellen <a name="candump"></a>
+## CanDump erstellen <a name="record_candump"></a>
 
  - Candump aufnehmen  
-   `candump -l -t A -s 0 can0`
-   - wird gespeichert in momentanes Verzeichnis unter `candump-<Aktuelles-Datum>.log`
-   - `can0` evtl. durch korrekte CAN-ID ersetzen
+   `candump -l -t A -s 0 <CAN_DEVICE>`
+   - wird gespeichert in aktuellem Verzeichnis unter `candump-<Aktuelles-Datum>.log`
+   - `<CAN_DEVICE>` durch korrektes CAN-Device ersetzen, z.B. `can0`
  - ausführlicher Candump (inkl. Error)  
-   `candump -l can0,0:0,#FFFFFFFF`
+   `candump -l <CAN_DEVICE>,0:0,#FFFFFFFF`
    
 ## CanDump übersetzen (Elmo) <a name="readable_candump"></a>
 Candump in lesbarer Version ausgeben  
 
  - Live übersetzen und anzeigen:  
-   `candump <can-ID> | rosrun canopen_test_utils readable.py elmo_mapping`  
+   `candump <CAN_DEVICE> | rosrun canopen_test_utils readable.py elmo_mapping`  
    (Bsp.: `candump can0 | rosrun canopen_test_utils readable.py elmo_mapping`)
    
  - Candump File übersetzen und anzeigen:  
@@ -72,8 +74,12 @@ Candump in lesbarer Version ausgeben
    Violette Leitungen = 48 V; blaue Leitungen = 24 V.
 
  - Start bringup:  
-    `roslaunch cob_test_rigs fdm.launch can_id_steer:=<can-ID> can_id_drive:=<can-ID>`  
-    Bsp.: `roslaunch cob_test_rigs fdm.launch can_id_steer:=3 can_id_drive:=4`
+    `roslaunch cob_test_rigs fdm.launch can_id_steer:=<CAN_ID> can_id_drive:=<CAN_ID>`  
+    Bsp.: `roslaunch cob_test_rigs fdm.launch can_id_steer:=3 can_id_drive:=4`  
+    Default CAN_IDs:  
+      - front_left: `can_id_steer:=1 can_id_drive:=2`  
+      - back: `can_id_steer:=3 can_id_drive:=4`  
+      - front_right: `can_id_steer:=5 can_id_drive:=6`  
 
  - FDM initialisieren/recovern (in neuem Terminal):  
     `rosservice call /fdm/driver/init`  
@@ -100,9 +106,13 @@ Candump in lesbarer Version ausgeben
     
 --------------------------------------------
 
-### Multi Joint Teststand <a name="comp_test"></a>
+### COB4-Aktoren Teststand <a name="comp_test"></a>
 
-Hiermit können mehrere Achsen gleichzeitig bewegt werden (z.B. Torsogelenk).
+Hiermit können mehrere Achsen bestimmter COB4-Aktoren gleichzeitig bewegt werden.  
+Aktuell werden folgende "Komponenten" unterstützt:  
+ - Torsogelenk: mit 2 beweglichen Achsen (`torso2`)  
+ - Kopfgelenk: mit 3 beweglichen Achsen (`head3`)  
+ - Sensorring: mit 1 beweglichen Achse (`sensorring`)  
 
 #### Variablen
  Die folgenden Variablen müssen passend zum aktuellen Teststand gewählt werden.  
@@ -116,7 +126,7 @@ Hiermit können mehrere Achsen gleichzeitig bewegt werden (z.B. Torsogelenk).
 
 #### Starten
  - Start bringup:  
-    `roslaunch cob_test_rigs COMPONENT.launch [can_device:=can0]`
+    `roslaunch cob_test_rigs COMPONENT.launch [can_device:=CAN_DEVICE]`
 
  - Initialisieren/Recovern:  
     `rosservice call /CAN_DEVICE/COMPONENT/driver/[init/recover]`
@@ -174,7 +184,7 @@ joints can only be moved one at a time.
  - Start bringup:  
     `roslaunch cob_test_rigs single_[elmo/schunk].launch can_device:=can0 can_id:=XX`
     
-    > can_ids:
+    > CAN_IDs:
     > - torso: 31, 32, 33
     > - head: 70, 71, 72
     > - sensorring: 73
