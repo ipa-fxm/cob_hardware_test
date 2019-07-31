@@ -72,3 +72,30 @@ Test Speakers with **Test Speakers** within the Sound Settings (check if left an
 
 ### Touchscreen:
 Touch the display of the robot
+
+## Intel NUC
+
+### Temperature Test
+
+Run the Test:
+
+`rosrun cob_devices_test run_thermal_test.py` 
+
+The results of the test where written in an *.tar.gz File where the skript was started. 
+
+optional arguments are possible and show with argument `--help`
+
+full signature: 
+
+`rosrun cob_devices_test run_thermal_test.py [-h] [--outputdir OUTPUTDIR] [--testtime TESTTIME]`
+
+Generate PNG-Image for the test-results:
+
+`rosrun cob_devices_test plot_thermal_test.py some_result_file.tar.gz`
+
+full signature:
+
+`rosrun cob_devices_test plot_thermal_test.py [--help] [--show] [--show-only] [--pdf] RESULT_FILE_1 [RESULT_FILE_N]` 
+
+
+
