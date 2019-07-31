@@ -115,6 +115,7 @@ Candump in lesbarer Version ausgeben
 Hiermit können mehrere Achsen bestimmter COB4-Aktoren gleichzeitig bewegt werden.  
 Aktuell werden folgende "Komponenten" unterstützt:  
  - Torsogelenk: mit 2 beweglichen Achsen (`torso2`)  
+ - Torsogelenk: mit 3 beweglichen Achsen (`torso3`)  
  - Kopfgelenk: mit 3 beweglichen Achsen (`head3`)  
  - Sensorring: mit 1 beweglichen Achse (`sensorring`)  
  - Arm (Schunk LWA4P extended): mit 7 beweglichen Achsen (`arm`)
@@ -129,7 +130,7 @@ Aktuell werden folgende "Komponenten" unterstützt:
 
  - `CAN_DEVICE`: e.g. `can0`, `can1`,...
 
- - `COMPONENT`: e.g. `torso2` (2DoF), `head3` (3DoF), `sensorring`,...  
+ - `COMPONENT`: e.g. `torso2` (2DoF), `torso3` (3DoF), `head3` (3DoF), `sensorring`,...  
 
 #### Starten
  - Start bringup:  
