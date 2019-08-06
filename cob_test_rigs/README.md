@@ -76,10 +76,10 @@ Candump in lesbarer Version ausgeben
  - Start bringup:  
     `roslaunch cob_test_rigs fdm.launch can_id_steer:=<CAN_ID> can_id_drive:=<CAN_ID>`  
     Bsp.: `roslaunch cob_test_rigs fdm.launch can_id_steer:=3 can_id_drive:=4`  
-    Default CAN_IDs:  
-      - front_left: `can_id_steer:=1 can_id_drive:=2`  
-      - back: `can_id_steer:=3 can_id_drive:=4`  
-      - front_right: `can_id_steer:=5 can_id_drive:=6`  
+    >Default CAN_IDs:  
+    > - front_left: `can_id_steer:=1 can_id_drive:=2`  
+    > - back: `can_id_steer:=3 can_id_drive:=4`  
+    > - front_right: `can_id_steer:=5 can_id_drive:=6`  
 
  - FDM initialisieren/recovern (in neuem Terminal):  
     `rosservice call /fdm/driver/init`  
