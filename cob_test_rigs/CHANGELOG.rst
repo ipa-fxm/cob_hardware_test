@@ -2,8 +2,8 @@
 Changelog for package cob_test_rigs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.5 (2019-08-07)
+------------------
 * Merge pull request `#43 <https://github.com/mojin-robotics/cob_hardware_test/issues/43>`_ from fmessmer/formatting
   readme formatting
 * readme formatting
