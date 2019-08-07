@@ -2,6 +2,16 @@
 Changelog for package cob_devices_test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#43 <https://github.com/mojin-robotics/cob_hardware_test/issues/43>`_ from fmessmer/formatting
+  readme formatting
+* readme formatting
+* Merge pull request `#41 <https://github.com/mojin-robotics/cob_hardware_test/issues/41>`_ from Acuda/feature/thermal_testing
+  integrated thermal test and plotting features for the test results
+* integrated thermal test and plotting features for the test results
+* Contributors: Björn Eistel, Felix Messmer, Florian Weisshardt, fmessmer
+
 0.1.4 (2019-07-19)
 ------------------
 

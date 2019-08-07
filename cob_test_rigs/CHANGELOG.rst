@@ -2,6 +2,23 @@
 Changelog for package cob_test_rigs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#43 <https://github.com/mojin-robotics/cob_hardware_test/issues/43>`_ from fmessmer/formatting
+  readme formatting
+* readme formatting
+* Merge pull request `#39 <https://github.com/mojin-robotics/cob_hardware_test/issues/39>`_ from mojin-robotics/benmaidel-patch-2
+  added instructions for readable candump script
+* consistency update
+* Update README.md
+  chapter candump and candump readable changed
+* Update README.md
+  candump added
+* Update cob_test_rigs/README.md
+  Co-Authored-By: Hannes Bachter <hannes.bachter@unity-robotics.de>
+* added instructions for readable candump script
+* Contributors: Benjamin Maidel, Felix Messmer, fmessmer, ipa-bdw
+
 0.1.4 (2019-07-19)
 ------------------
 

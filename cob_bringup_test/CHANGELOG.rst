@@ -2,6 +2,9 @@
 Changelog for package cob_bringup_test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.1.4 (2019-07-19)
 ------------------
 
