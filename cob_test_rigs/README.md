@@ -88,8 +88,9 @@ Candump in lesbarer Version ausgeben
  - Testscript (in neuem Terminal):  
     `rosrun cob_test_rigs test_fdm.py`
   
- - Testscript endlosschleife (in neuem Terminal):  
-    `while true; do rosrun cob_test_rigs test_fdm.py; done`
+ - Testscript Endlosschleife (in neuem Terminal):  
+    `while true; do rosrun cob_test_rigs test_fdm.py; done`  
+    Beenden mit `STRG+C`
 
  - Wichtig: Auf korrekte Kommutierung/Drehrichtung der einzelnen Motoren achten!
  
