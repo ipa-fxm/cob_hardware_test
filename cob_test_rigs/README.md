@@ -86,7 +86,10 @@ Candump in lesbarer Version ausgeben
     `rosservice call /fdm/driver/recover`
 
  - Testscript (in neuem Terminal):  
-    `rosrun cob_test_rigs test_fdm.py`
+    `rosrun cob_test_rigs test_fdm.py
+  
+ - Testscript endlosschleife (in neuem Terminal):  
+    `while true; do rosrun cob_test_rigs test_fdm.py; done`
 
  - Wichtig: Auf korrekte Kommutierung/Drehrichtung der einzelnen Motoren achten!
  
