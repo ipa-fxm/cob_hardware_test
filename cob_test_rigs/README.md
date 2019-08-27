@@ -40,6 +40,11 @@ Teststände
    `rosrun canopen_test_utils canopen_elmo_console <CAN_DEVICE> <CAN-ID>`
    
    (Bsp.: `rosrun canopen_test_utils canopen_elmo_console can0 1`)
+   
+### Nützliche Kommandos für die ELMO-Konsole
+- `OV[39]` FDM homing offset [1/1000 Grad]
+- `sss.move("torso",[[0.1, 0]])` Achsen bewegen
+- `SV` Speichern
 
 ## CanDump erstellen <a name="record_candump"></a>
 
