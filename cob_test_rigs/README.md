@@ -7,6 +7,7 @@ Allgemeines
 - [ElmoConsole](#elmo_console)
 - [CanDumpErstellen](#record_candump)
 - [CanDumpÜbersetzen](#readable_candump)
+- [CAN - Protocol and ErrorCodes](#can_docu)
 
 Teststände
 - [FDM Teststand](#fdm_test)
@@ -33,18 +34,25 @@ Teststände
     
 ## ElmoConsole <a name="elmo_console"></a>
 
- Achtung: ElmoConsole kann nicht zusammen mit ROS-Treiber verwendet werden.  
- Weitere Infos zu ElmoConsole gibt es unter https://github.com/mojin-robotics/cob4/blob/groovy_dev/ELMO_adjust_offset_remote.md  
+ **Achtung**: ElmoConsole kann nicht zusammen mit ROS-Treiber verwendet werden.  
 
- - ElmoConsole ausführen:  
+### ElmoConsole ausführen:  
    `rosrun canopen_test_utils canopen_elmo_console <CAN_DEVICE> <CAN-ID>`
    
    (Bsp.: `rosrun canopen_test_utils canopen_elmo_console can0 1`)
-   
-### Nützliche Kommandos für die ELMO-Konsole
+
+### Homing-Offset einstellen mit ElmoConsole
+ Setzen des Homing-Offset und weitere Infos zu ElmoConsole gibt es unter https://github.com/mojin-robotics/cob4/blob/groovy_dev/ELMO_adjust_offset_remote.md  
+
+### Geschwindigkeitslimits für die Basis setzen mit ElmoConsole
+ Wie das geht steht unter: https://github.com/mojin-robotics/cob4/issues/1112#issuecomment-482002587
+
+### Nützliche Kommandos für ElmoConsole
+- `PP[13]` CAN-Id des Device
 - `OV[39]` FDM homing offset [1/1000 Grad]
-- `sss.move("torso",[[0.1, 0]])` Achsen bewegen
+- `VH[2]`, `HL[2]`, `LL[2]` Geschindigkeitslimits und Warning-Thresholds
 - `SV` Speichern
+- vollständige Doku: https://github.com/mojin-robotics/cob4/issues/839#issuecomment-526142256
 
 ## CanDump erstellen <a name="record_candump"></a>
 
@@ -69,7 +77,12 @@ Candump in lesbarer Version ausgeben
  - Candump File übersetzen und in Datei speichern:  
    `cat <candump_file> | rosrun canopen_test_utils readable.py elmo_mapping > <candump_file_readable.log)`  
    (Bsp.: `cat candump.log | rosrun canopen_test_utils readable.py elmo_mapping > readable.log`)
-   
+
+## CAN - Protocol and ErrorCodes <a name="can_docu"></a>
+ - CAN-Manual 402: https://github.com/mojin-robotics/cob4/issues/839#issuecomment-526142232
+ - CAN-ErrorCodes 301: https://github.com/mojin-robotics/cob4/issues/839#issuecomment-504991657
+ - CAN-ErrorCodes Elmo: https://github.com/mojin-robotics/cob4/issues/839#issuecomment-504991691
+
 --------------------------------------------
 ## Teststände
 
