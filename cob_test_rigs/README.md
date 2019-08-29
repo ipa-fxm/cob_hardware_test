@@ -117,6 +117,9 @@ Aktuell werden folgende "Komponenten" unterstützt:
  - Torsogelenk: mit 2 beweglichen Achsen (`torso2`)  
  - Kopfgelenk: mit 3 beweglichen Achsen (`head3`)  
  - Sensorring: mit 1 beweglichen Achse (`sensorring`)  
+ - Arm (Schunk LWA4P extended): mit 7 beweglichen Achsen (`arm`)
+ - Greifer (Schunk PG70): mit 1 beweglichen Achse (`pg70`)
+ - Arm+Greifer (s.o.) auf gleichem CAN-Bus (`arm_pg70`)
 
 #### Variablen
  Die folgenden Variablen müssen passend zum aktuellen Teststand gewählt werden.  
@@ -192,7 +195,8 @@ joints can only be moved one at a time.
     > - torso: 31, 32, 33
     > - head: 70, 71, 72
     > - sensorring: 73
-    > - arm: 61, 62, 63, 64, 65, 66, 67
+    > - arm: 51, 52, 53, 54, 55, 56, 57
+    > - pg70: 12
 
  - Initialisieren/Recovern:  
     `rosservice call /single_[elmo/schunk]/driver/[init/recover]`

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
+       name="pg70" >
+
+  <!-- common stuff -->
+  <xacro:include filename="$(find cob_description)/urdf/common.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/materials.urdf.xacro" />
+
+  <!-- schunk pg70 -->
+  <xacro:include filename="$(find cob_description)/urdf/pg70/pg70.urdf.xacro" />
+
+  <link name="world"/>
+  <xacro:schunk_pg70 name="pg70" parent="world" has_podest="true">
+    <origin xyz="0 0 0.5" rpy="0 0 0" />
+  </xacro:schunk_pg70>
+
+</robot>
