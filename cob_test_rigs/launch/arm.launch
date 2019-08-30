@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="robot" value="arm"/>
+	<arg name="can_device" default="can0"/>
+
+	<!-- driver -->
+	<include file="$(find cob_test_rigs)/launch/component.xml">
+		<arg name="robot" value="$(arg robot)"/>
+		<arg name="can_device" value="$(arg can_device)"/>
+		<arg name="joint_names" value="['arm_1_joint','arm_2_joint','arm_3_joint','arm_4_joint','arm_5_joint','arm_6_joint','arm_7_joint']"/>
+		<arg name="default_vel" value="0.4"/>
+		<arg name="default_acc" value="1.0"/>
+	</include>
+
+</launch>

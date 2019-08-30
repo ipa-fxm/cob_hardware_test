@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
+       name="arm_pg70" >
+
+  <!-- common stuff -->
+  <xacro:include filename="$(find schunk_description)/urdf/common.xacro" />
+  <xacro:include filename="$(find schunk_description)/urdf/materials.urdf.xacro" />
+
+  <!-- schunk lwa4p_extended -->
+  <xacro:include filename="$(find cob_description)/urdf/cob4_arm/cob4_arm.urdf.xacro" />
+  <!-- schunk pg70 -->
+  <xacro:include filename="$(find cob_description)/urdf/pg70/pg70.urdf.xacro" />
+
+  <link name="world"/>
+  <xacro:cob4_arm name="arm" parent="world" has_podest="true">
+    <origin xyz="0 0 0.026" rpy="0 0 0" />
+  </xacro:cob4_arm>
+  <xacro:schunk_pg70 name="pg70" parent="arm_7_link" has_podest="false">
+    <origin xyz="0 0 0.5" rpy="0 0 0" />
+  </xacro:schunk_pg70>
+
+</robot>

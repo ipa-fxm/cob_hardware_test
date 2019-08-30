@@ -7,6 +7,8 @@
 	<arg name="joint_names"/>
 	<arg name="default_vel"/>
 	<arg name="default_acc"/>
+	<arg name="use_external_sync" default="false"/>
+	<arg name="start_external_sync" default="false"/>
 
 	<!-- upload default configuration parameters -->
 	<rosparam param="/script_server/$(arg can_device)/$(arg robot)/joint_names" subst_value="True">$(arg joint_names)</rosparam>
@@ -27,8 +29,8 @@
 			<arg name="component_name" value="$(arg robot)"/>
 			<arg name="can_device" value="$(arg can_device)"/>
 			<arg name="interval_ms" value="10"/>
-			<arg name="use_external_sync" value="false"/>
-			<arg name="start_external_sync" value="false"/>
+			<arg name="use_external_sync" value="$(arg use_external_sync)"/>
+			<arg name="start_external_sync" value="$(arg start_external_sync)"/>
 		</include>
 
 		<include file="$(find cob_bringup)/controllers/generic_controller.launch">
@@ -36,6 +38,10 @@
 			<arg name="pkg_hardware_config" value="$(arg pkg_hardware_config)"/>
 			<arg name="component_name" value="$(arg robot)"/>
 		</include>
+
+		<node pkg="diagnostic_aggregator" type="aggregator_node" name="diagnostic_aggregator" >
+			<rosparam command="load" file="$(find cob_test_rigs)/robots/common/diagnostics_analyzers.yaml" />
+		</node>
 	</group>
 
 </launch>
