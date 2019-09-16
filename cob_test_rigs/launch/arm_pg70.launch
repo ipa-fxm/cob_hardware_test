@@ -5,19 +5,19 @@
 	<arg name="pkg_hardware_config" value="$(find cob_test_rigs)"/>
 
 	<!-- upload default configuration parameters -->
-	<rosparam param="/script_server/$(arg can_device)/arm/joint_names">"['arm_1_joint','arm_2_joint','arm_3_joint','arm_4_joint','arm_5_joint','arm_6_joint','arm_7_joint']"</rosparam>
+	<rosparam param="/script_server/$(arg can_device)/arm/joint_names">['arm_1_joint','arm_2_joint','arm_3_joint','arm_4_joint','arm_5_joint','arm_6_joint','arm_7_joint']</rosparam>
 	<param name="/script_server/$(arg can_device)/arm/action_name" value="/$(arg can_device)/arm/joint_trajectory_controller/follow_joint_trajectory"/>
 	<param name="/script_server/$(arg can_device)/arm/service_ns" value="/$(arg can_device)/arm/driver"/>
 	<param name="/script_server/$(arg can_device)/arm/default_vel" value="0.4" type="double"/>
 	<param name="/script_server/$(arg can_device)/arm/default_acc" value="1.0" type="double"/>
-	<rosparam command="load" ns="/script_server/$(arg can_device)/arm/test" file="$(arg pkg_hardware_config)/robots/arm/config/arm_configurations.yaml"/>
+	<rosparam command="load" ns="/script_server/$(arg can_device)/arm" file="$(arg pkg_hardware_config)/robots/arm/config/arm_configurations.yaml"/>
 
 	<rosparam param="/script_server/$(arg can_device)/pg70/joint_names">"['pg70_finger_left_joint']"</rosparam>
 	<param name="/script_server/$(arg can_device)/pg70/action_name" value="/$(arg can_device)/pg70/joint_trajectory_controller/follow_joint_trajectory"/>
 	<param name="/script_server/$(arg can_device)/pg70/service_ns" value="/$(arg can_device)/pg70/driver"/>
 	<param name="/script_server/$(arg can_device)/pg70/default_vel" value="0.4" type="double"/>
 	<param name="/script_server/$(arg can_device)/pg70/default_acc" value="1.0" type="double"/>
-	<rosparam command="load" ns="/script_server/$(arg can_device)/pg70/test" file="$(arg pkg_hardware_config)/robots/pg70/config/pg70_configurations.yaml"/>
+	<rosparam command="load" ns="/script_server/$(arg can_device)/pg70" file="$(arg pkg_hardware_config)/robots/pg70/config/pg70_configurations.yaml"/>
 
 	<group ns="$(arg can_device)">
 		<!-- upload robot_description -->
