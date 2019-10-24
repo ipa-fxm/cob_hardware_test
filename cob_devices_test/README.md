@@ -96,3 +96,20 @@ and record sound with ```arecord -C test.wav```
 
     >full signature:  
     >`rosrun cob_devices_test plot_thermal_test.py [--help] [--show] [--show-only] [--pdf] RESULT_FILE_1 [RESULT_FILE_N]` 
+
+Alternative method via USB live stick:
+
+1. preparations:
+   - connect service cart to PC (Display, USB-hub with live stick and power supply)
+   - power on the PC
+   - press F10 and choose the usb live stick
+   - choose persistent live
+   - make a directory on the live system usbdata partition (e.g. thermal-test-cob4-XX)
+   - copy the `plot_thermal_test.py` and `run_thermal_test.py` to the created directory
+
+1. Run the test:
+   - open a terminal and navigate to the created directory
+   - execute the test: `./run_thermal_test.py`
+
+2. plot the data (creates a png image):
+   - execute the plot file: `./plot_thermal_test.py thermal_test-file.tar.gz`
