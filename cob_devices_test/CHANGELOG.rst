@@ -2,6 +2,13 @@
 Changelog for package cob_devices_test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#49 <https://github.com/mojin-robotics/cob_hardware_test/issues/49>`_ from mojin-robotics/mojin-dev-team-patch-1
+  thermal test via live usb added
+* thermal test via live usb added
+* Contributors: Felix Messmer, Mojin Dev Team
+
 0.1.5 (2019-08-07)
 ------------------
 * Merge pull request `#43 <https://github.com/mojin-robotics/cob_hardware_test/issues/43>`_ from fmessmer/formatting

@@ -2,6 +2,26 @@
 Changelog for package cob_test_rigs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#46 <https://github.com/mojin-robotics/cob_hardware_test/issues/46>`_ from mojin-robotics/elmo-console-commands-added
+  added some useful commands
+* Update README.md
+* added some useful commands
+* Merge pull request `#42 <https://github.com/mojin-robotics/cob_hardware_test/issues/42>`_ from fmessmer/add_torso3_test_rig
+  add test rig for 3 dof torso
+* add test rig for 3 dof torso
+* Merge pull request `#47 <https://github.com/mojin-robotics/cob_hardware_test/issues/47>`_ from fmessmer/add_arm_test_rigs
+  add test rigs: arm, pg70, arm_pg70
+* add test rigs: arm, pg70, arm_pg70
+* Merge pull request `#45 <https://github.com/mojin-robotics/cob_hardware_test/issues/45>`_ from mojin-robotics/FelixBezler-patch-1
+  Update README.md
+* Update README.md
+* Update README.md
+* Update README.md
+  added infinite loop command for the FDM testrig.
+* Contributors: Felix Messmer, FelixB, Mojin Dev Team, fmessmer
+
 0.1.5 (2019-08-07)
 ------------------
 * Merge pull request `#43 <https://github.com/mojin-robotics/cob_hardware_test/issues/43>`_ from fmessmer/formatting
