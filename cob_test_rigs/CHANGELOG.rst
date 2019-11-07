@@ -2,8 +2,8 @@
 Changelog for package cob_test_rigs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.6 (2019-11-07)
+------------------
 * Merge pull request `#46 <https://github.com/mojin-robotics/cob_hardware_test/issues/46>`_ from mojin-robotics/elmo-console-commands-added
   added some useful commands
 * Update README.md
