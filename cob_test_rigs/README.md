@@ -3,6 +3,8 @@
 ## Content
 
 Allgemeines
+- [Aufbau Roboter IP Adressen](#ip_addr)
+- [SSH Verbindung zu Roboter aufbauen](#ssh)
 - [Umgebungsvariablen](#env_var)
 - [ElmoConsole](#elmo_console)
 - [CanDumpErstellen](#record_candump)
@@ -16,6 +18,44 @@ Teststände
 - [Hand Teststand](#hand_test)
 - [Cam3d Teststand](#cam3d_test)
 
+## Aufbau Roboter IP Adressen <a name="ip_addr"></a>
+
+Beispiel anhand der IP Adresse 10.4.2.11:
+```
+10     .4         .2            .11
+SUBNETZ.GENERATION.ROBOTERNUMMER.RECHNERIP
+```
+
+SUBNETZ:
+- ist im Augenblick immer 10
+
+GENERATION (welche Robotergeneration es ist):
+- 3 = cob3
+- 4 = cob4
+- 5 = mrg
+- 6 = mrl
+
+ROBOTERNUMMER (welche Nummer der Roboter trägt):
+- 2 = cob4-2
+- 14 = cob4-14
+- 22 = cob4-22
+.
+.
+.
+
+RECHNERIP (die IP Adresse des Rechneres im Roboternetz):
+- 11 = b1 (base pc)
+- 21 = t1 (torso pc 1)
+- 22 = t2 (torso pc 2)
+- 23 = t3 (torso pc 3)
+- 31 = s1 (sensoring pc 1)
+- 41 = h1 (head pc 1)
+
+## SSH Verbindung zu Roboter aufbauen<a name="ssh"></a>
+Um sich zum Beispiel auf den base Rechner vom cob4-2 mit dem robot user zu verbinden, kann folgender Befehl genutzt werden:
+```
+ssh -XC robot@10.4.2.11
+```
 
 ## Umgebungsvariablen <a name="env_var"></a>
 
