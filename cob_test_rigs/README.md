@@ -198,7 +198,7 @@ Aktuell werden folgende "Komponenten" unterstützt:
     `rosservice call /CAN_DEVICE/COMPONENT/driver/[init/recover]`
 
  - Testscript (einfacher Durchlauf) starten:  
-    `rosrun cob_test_rigs test_components.py -c COMPONENT -d CAN_DEVICE -r 1 -v 0.4`
+    `rosrun cob_test_rigs test_components.py __ns:=CAN_DEVICE -c COMPONENT -r 1 -v 0.4`
     
     >Options:
     >
@@ -206,9 +206,6 @@ Aktuell werden folgende "Komponenten" unterstützt:
     >
     >  -c COMPONENT, --component=COMPONENT
     >                        Component that is going to be tested
-    >
-    >  -d CAN_DEVICE, --can_device=CAN_DEVICE
-    >                        CAN device the component is connected to
     >
     >  -r REPETITIONS, --reps=REPETITIONS
     >                        Number of repetitions for each test cycle, default: 5
@@ -220,7 +217,7 @@ Aktuell werden folgende "Komponenten" unterstützt:
     >                        Overwrite default acceleration of component, default: 1.0
 
  - Testscript (Endlosschleife) starten:  
-    `while true; do rosrun cob_test_rigs test_components.py -c COMPONENT -d CAN_DEVICE -r 1 -v 0.4; done`  
+    `while true; do rosrun cob_test_rigs test_components.py __ns:=CAN_DEVICE -c COMPONENT -r 1 -v 0.4; done`  
     Beenden mit `STRG+C`
 
  - Start `rqt`:  
@@ -233,7 +230,7 @@ Aktuell werden folgende "Komponenten" unterstützt:
     - `Plot`: Plugins > Visualization > Plot
 
  - Start `cob_console`:  
-    `rosrun cob_script_server cob_console`
+    `rosrun cob_script_server cob_console __ns:=CAN_DEVICE`
 
  - Usage `cob_console`:  
     `sss.move("CAN_DEVICE/COMPONENT","CONFIG")`  
