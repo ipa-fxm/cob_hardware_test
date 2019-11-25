@@ -11,7 +11,8 @@ from optparse import OptionParser
 class MoveComponent():
     def __init__(self, options):
         rospy.init_node('component_test', anonymous=True)
-        self.component = str(options.can_device)+"/"+str(options.component)
+        self.can_device = rospy.get_namespace().lstrip('/').rstrip('/')
+        self.component = self.can_device+"/"+str(options.component)
         self.reps = int(options.repetitions)
         self.default_vel = float(options.default_vel)
         self.default_acc = float(options.default_acc)
@@ -19,18 +20,35 @@ class MoveComponent():
     def run_test(self):
         rospy.set_param("/script_server/"+self.component+"/default_vel", self.default_vel)
         rospy.set_param("/script_server/"+self.component+"/default_acc", self.default_acc)
-        poses = rospy.get_param("/script_server/" +self.component+"/test")
+        poses = rospy.get_param("/script_server/" +self.component, [])
         for i in range(0, self.reps):
             rospy.logwarn(">>>> Executing iteration %s of %s", str(i), str(self.reps))
-            for key, value in poses.iteritems():
-                rospy.loginfo("Moving to pose %s", str(key))
-                handle = sss.move(self.component, value, True)
-                if (handle.get_error_code() == 4):
-                    rospy.logerr("Could not move to %s. Aborting!", key)
-                    break
-                else:
-                    rospy.loginfo("Moved to pose %s successfully", key)
-        handle = sss.move(self.component, "test/home", True)
+            for name in poses:
+                def process_config():
+                    rospy.logdebug("name: {}".format(name))
+                    config = poses[name]
+                    # type checking
+                    if not type(config) is list:
+                        rospy.logdebug("no list config: {}".format(str(config)))
+                        return
+                    if not all((type(item) is list) for item in config):
+                        rospy.logdebug("no list of lists config: {}".format(str(config)))
+                        return
+                    for step in config:
+                        if not all(((type(item) is float) or (type(item) is int)) for item in step):
+                            rospy.logdebug("no list of float/int lists config: {}".format(str(config)))
+                            return
+
+                    rospy.loginfo("Moving to pose %s", str(name))
+                    rospy.logdebug("config: {}".format(str(config)))
+                    handle = sss.move(self.component, config, True)
+                    if (handle.get_error_code() == 4):
+                        rospy.logerr("Could not move to %s. Aborting!", name)
+                        return
+                    else:
+                        rospy.loginfo("Moved to pose %s successfully", name)
+                process_config()
+        handle = sss.move(self.component, "home", True)
         rospy.loginfo(">>>> Test finished")
 
     def component_init(self):
@@ -54,9 +72,6 @@ if __name__ == '__main__':
     parser.add_option(
         '-c', '--component', dest='component',
         help="Component that is going to be tested")
-    parser.add_option(
-        '-d', '--can_device', dest='can_device',
-        help="CAN device the component is connected to")
     parser.add_option(
         '-r', '--reps', dest='repetitions', default=5,
         help="Number of repetitions for each test cycle")
