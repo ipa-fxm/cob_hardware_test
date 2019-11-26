@@ -18,6 +18,13 @@ Teststände
 - [Hand Teststand](#hand_test)
 - [Cam3d Teststand](#cam3d_test)
 
+Bringup-Test
+- [COB4-Aktoren Bringup-Test](#bringup_test)
+
+--------------------------------------------
+
+--------------------------------------------
+
 ## Aufbau Roboter IP Adressen <a name="ip_addr"></a>
 
 Beispiel anhand der IP Adresse 10.4.2.11:
@@ -57,63 +64,65 @@ Um sich zum Beispiel auf den base Rechner vom cob4-2 mit dem robot user zu verbi
 ssh -XC robot@10.4.2.11
 ```
 
+--------------------------------------------
+
 ## Umgebungsvariablen <a name="env_var"></a>
 
 ### `ROS_MASTER_URI` exportieren
-
  - auf den gewünschten Roboter cob4-<roboter_nummer> setzen:  
     `export ROS_MASTER_URI=http://10.4.<roboter_nummer>.11:11311`
 
 ### `ROS_IP` exportieren
-
  - eigene IP Adresse rausfinden, z.B. eth0 aus:  
     `ifconfig`
-
  - eigene IP Adresse setzen:  
     `export ROS_IP=<ip_address>`
-    
+
+--------------------------------------------
+
 ## ElmoConsole <a name="elmo_console"></a>
 
- **Achtung**: ElmoConsole kann nicht zusammen mit ROS-Treiber verwendet werden.  
+:warning: **ElmoConsole kann nicht zusammen mit ROS-Treiber verwendet werden.** :warning:  
 
 ### ElmoConsole ausführen:  
-   `rosrun canopen_test_utils canopen_elmo_console <CAN_DEVICE> <CAN-ID>`
-   
-   (Bsp.: `rosrun canopen_test_utils canopen_elmo_console can0 1`)
+ `rosrun canopen_test_utils canopen_elmo_console <CAN_DEVICE> <CAN-ID>`  
+ (Bsp.: `rosrun canopen_test_utils canopen_elmo_console can0 1`)
 
 ### Homing-Offset einstellen mit ElmoConsole
- Setzen des Homing-Offset und weitere Infos zu ElmoConsole gibt es unter https://github.com/mojin-robotics/cob4/blob/groovy_dev/ELMO_adjust_offset_remote.md  
+ Setzen des Homing-Offset und weitere Infos zu ElmoConsole gibt es unter:  
+ https://github.com/mojin-robotics/cob4/blob/groovy_dev/ELMO_adjust_offset_remote.md  
 
 ### Geschwindigkeitslimits für die Basis setzen mit ElmoConsole
  Wie das geht steht unter: https://github.com/mojin-robotics/cob4/issues/1112#issuecomment-482002587
 
 ### Nützliche Kommandos für ElmoConsole
-- `PP[13]` CAN-Id des Device
-- `OV[39]` FDM homing offset [1/1000 Grad]
-- `VH[2]`, `HL[2]`, `LL[2]` Geschindigkeitslimits und Warning-Thresholds
-- `SV` Speichern
-- vollständige Doku: https://github.com/mojin-robotics/cob4/issues/839#issuecomment-526142256
+ - `PP[13]` CAN-Id des Device
+ - `OV[39]` FDM homing offset [1/1000 Grad]
+ - `VH[2]`, `HL[2]`, `LL[2]` Geschindigkeitslimits und Warning-Thresholds
+ - `SV` Speichern
+ - vollständige Doku: https://github.com/mojin-robotics/cob4/issues/839#issuecomment-526142256
+
+--------------------------------------------
 
 ## CanDump erstellen <a name="record_candump"></a>
-
  - Candump aufnehmen  
    `candump -l -t A -s 0 <CAN_DEVICE>`
    - wird gespeichert in aktuellem Verzeichnis unter `candump-<Aktuelles-Datum>.log`
    - `<CAN_DEVICE>` durch korrektes CAN-Device ersetzen, z.B. `can0`
  - ausführlicher Candump (inkl. Error)  
    `candump -l <CAN_DEVICE>,0:0,#FFFFFFFF`
-   
+
 ## CanDump übersetzen (Elmo) <a name="readable_candump"></a>
 Candump in lesbarer Version ausgeben  
 
  - Live übersetzen und anzeigen:  
    `candump <CAN_DEVICE> | rosrun canopen_test_utils readable.py elmo_mapping`  
    (Bsp.: `candump can0 | rosrun canopen_test_utils readable.py elmo_mapping`)
-   
+
  - Candump File übersetzen und anzeigen:  
    `cat <candump_file> | rosrun canopen_test_utils readable.py elmo_mapping`  
    (Bsp.: `cat candump.log | rosrun canopen_test_utils readable.py elmo_mapping`
-   
+
  - Candump File übersetzen und in Datei speichern:  
    `cat <candump_file> | rosrun canopen_test_utils readable.py elmo_mapping > <candump_file_readable.log)`  
    (Bsp.: `cat candump.log | rosrun canopen_test_utils readable.py elmo_mapping > readable.log`)
@@ -197,6 +206,7 @@ Aktuell werden folgende "Komponenten" unterstützt:
  - Initialisieren/Recovern:  
     `rosservice call /CAN_DEVICE/COMPONENT/driver/[init/recover]`
 
+#### Testscripts
  - Testscript (einfacher Durchlauf) starten:  
     `rosrun cob_test_rigs test_components.py __ns:=CAN_DEVICE -c COMPONENT -r 1 -v 0.4`
     
@@ -220,15 +230,14 @@ Aktuell werden folgende "Komponenten" unterstützt:
     `while true; do rosrun cob_test_rigs test_components.py __ns:=CAN_DEVICE -c COMPONENT -r 1 -v 0.4; done`  
     Beenden mit `STRG+C`
 
+#### Start `rqt`
  - Start `rqt`:  
     `rqt __ns:=CAN_DEVICE`
-    
-    Plugins of Interest: 
-    - `Controller Manager`: Plugins > Robot Tools > Controller Manager
-    - `Joint Trajectory Controller` (Slider) : Plugins > Robot Tools > Joint Trajectory Controller
-    - `Diagnostics Viewer`: Plugins > Robot Tools > Diagnostics Viewer
-    - `Plot`: Plugins > Visualization > Plot
 
+#### Test JointTrajectoryController
+ - siehe [unten](#bringup_fjt)
+
+#### Test `cob_console`
  - Start `cob_console`:  
     `rosrun cob_script_server cob_console __ns:=CAN_DEVICE`
 
@@ -246,8 +255,9 @@ Aktuell werden folgende "Komponenten" unterstützt:
 
 ### Single Joint Teststand <a name="single_test"></a>
 
-joints can only be moved one at a time.
+Hierit können einzelne Gelenke eines beliebigen Aktors bewegt werden.
 
+#### Starten
  - Start bringup:  
     `roslaunch cob_test_rigs single_[elmo/schunk].launch can_device:=can0 can_id:=XX`
     
@@ -261,20 +271,11 @@ joints can only be moved one at a time.
  - Initialisieren/Recovern:  
     `rosservice call /single_[elmo/schunk]/driver/[init/recover]`
 
- - Start `rqt` (siehe auch Info oben):  
-    `rqt`
+#### Start `rqt`
+ - siehe [unten](#bringup_rqt)
 
 ##### Test JointTrajectoryController:
- 1. start controller (in `rqt` window)
-    - go to tab `ControllerManager`
-    - add `joint_trajectory_controller` from drop-down menu
-    - right-click on controller name -> press start (needs to be "running" afterwards)
-   
- 2. move single joint
-    - go to tab `JointTrajectoryController`
-    - select `joint_trajectory_controller` from drop down
-    - press red button to activate slider (button turns green)
-    - move the slider or enter desired joint position [rad] directly
+ - siehe [unten](#bringup_fjt)
 
 ##### Test JointPositionController/JointVelocityController
 
@@ -327,3 +328,66 @@ joints can only be moved one at a time.
     `roslaunch mojin_bringup cam3d_d435_rgbd.launch robot:=jan name:=sensorring_cam3d serial_no:=SERIALNUMBER`
  4. Verify Image and PointCloud2 in rviz
     `roslaunch cob_test_rigs cam3d_d435_rviz.launch`
+
+--------------------------------------------
+## Bringup-Test
+
+### COB4-Aktoren Bringup-Test <a name="bringup_test"></a>
+
+Hiermit können die verschiedenen Aktoren eines Roboters bewegt werden, wenn sie korrekt in der Bringup-Schicht des Roboters konfiguriert sind.  
+Aktuell werden folgende "Komponenten" unterstützt - je nach Roboter-Setup:  
+ - Torsogelenk: `torso`  
+ - Kopfgelenk: `head`  
+ - Sensorring: `sensorring`  
+ - Arm (Schunk LWA4P extended): `arm`, `arm_left`, `arm_right`
+ - Greifer (Schunk COB4/PG70): `gripper`, `gripper_left`, `gripper_right`
+
+#### Starten
+ - Start bringup:  
+    `sudo cob-start`  
+
+ - Initialisieren/Recovern:  
+    `rosservice call /COMPONENT/driver/[init/recover]`
+
+#### Test Diagnostics
+ - `rosrun rqt_robot_monitor rqt_robot_monitor`
+ - Check for Errors/Warnings under the `Actuators` section
+
+#### Start `rqt` <a name="bringup_rqt"></a>
+    Plugins of Interest: 
+    - `Controller Manager`: Plugins > Robot Tools > Controller Manager
+    - `Joint Trajectory Controller` (Slider) : Plugins > Robot Tools > Joint Trajectory Controller
+    - `Diagnostics Viewer`: Plugins > Robot Tools > Diagnostics Viewer
+    - `Plot`: Plugins > Visualization > Plot
+
+#### Test JointTrajectoryController <a name="bringup_fjt"></a>
+ - `Controller Manager`:  
+    - go to tab `ControllerManager`
+    - add `joint_trajectory_controller` from drop-down menu of the respective COMPONENT 
+    - right-click on controller name -> press start (needs to be "running" afterwards)
+   
+ - `Controller JointTrajectoryController`:  
+    - go to tab `JointTrajectoryController`
+    - select `joint_trajectory_controller` from drop down
+    - press red button to activate slider (button turns green)  
+      :warning: **when the button is green joints move immediately!** :warning:
+    - move the slider or enter desired joint position [rad] directly
+    - disable moving the joints by clicking the red on/off switch button again
+
+#### Test `cob_console` <a name="bringup_console"></a>
+ - Start `cob_console`:  
+    `rosrun cob_script_server cob_console`
+
+ - Usage `cob_console`:  
+    `sss.move("COMPONENT","CONFIG")`  
+    `sss.init("COMPONENT")`
+
+ - Exit `cob_console`:  
+    `STRG + D`, then `ENTER`
+
+ - Verfügbare configs/poses:  
+    `rosparam get /script_server/COMPONENT`
+
+#### Test Dashboard <a name="bringup_dashboard"></a>
+ - Start `dashboard`:
+    `roslaunch mojin_bringup dashboard.launch robot:=ROBOT`
