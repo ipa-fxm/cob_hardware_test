@@ -2,8 +2,8 @@
 Changelog for package cob_bringup_test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.7 (2019-11-29)
+------------------
 * Merge pull request `#52 <https://github.com/mojin-robotics/cob_hardware_test/issues/52>`_ from fmessmer/neutralize_bringup
   neutralize bringup dependencies
 * not declare dependency to simplify travis

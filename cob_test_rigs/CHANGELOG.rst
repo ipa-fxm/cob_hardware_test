@@ -2,8 +2,8 @@
 Changelog for package cob_test_rigs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.7 (2019-11-29)
+------------------
 * Merge pull request `#52 <https://github.com/mojin-robotics/cob_hardware_test/issues/52>`_ from fmessmer/neutralize_bringup
   neutralize bringup dependencies
 * make cob_test_rigs mojin/cob independent
