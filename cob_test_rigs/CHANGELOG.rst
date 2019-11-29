@@ -2,6 +2,24 @@
 Changelog for package cob_test_rigs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#52 <https://github.com/mojin-robotics/cob_hardware_test/issues/52>`_ from fmessmer/neutralize_bringup
+  neutralize bringup dependencies
+* make cob_test_rigs mojin/cob independent
+* Merge pull request `#51 <https://github.com/mojin-robotics/cob_hardware_test/issues/51>`_ from fmessmer/move_components_bringup
+  add section for moving components with bringup running
+* add section for moving components with bringup running
+* Merge pull request `#48 <https://github.com/mojin-robotics/cob_hardware_test/issues/48>`_ from HannesBachter/fix/arm_configurations
+  arm pg70 enhancements
+* fix type_checking and robot_description ns handling
+* add type checking to test_components
+* add arm configurations and use script_server ns without test
+* Merge pull request `#50 <https://github.com/mojin-robotics/cob_hardware_test/issues/50>`_ from mojin-robotics/benmaidel-patch-2
+  Update README.md
+* Update README.md
+* Contributors: Benjamin Maidel, Felix Messmer, fmessmer, hyb
+
 0.1.6 (2019-11-07)
 ------------------
 * Merge pull request `#46 <https://github.com/mojin-robotics/cob_hardware_test/issues/46>`_ from mojin-robotics/elmo-console-commands-added

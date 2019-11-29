@@ -2,6 +2,9 @@
 Changelog for package cob_devices_test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.1.6 (2019-11-07)
 ------------------
 * Merge pull request `#49 <https://github.com/mojin-robotics/cob_hardware_test/issues/49>`_ from mojin-robotics/mojin-dev-team-patch-1

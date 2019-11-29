@@ -2,6 +2,9 @@
 Changelog for package cob_hardware_test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.1.6 (2019-11-07)
 ------------------
 
