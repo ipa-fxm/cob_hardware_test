@@ -16,7 +16,7 @@
 	<node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher"/>
 
 	<!-- driver -->
-	<include file="$(find cob_bringup)/drivers/canopen_402.launch">
+	<include file="$(find cob_test_rigs)/launch/drivers/canopen_402.launch">
 		<arg name="robot" value="$(arg robot)"/>
 		<arg name="pkg_hardware_config" value="$(arg pkg_hardware_config)"/>
 		<arg name="component_name" value="single_elmo"/>

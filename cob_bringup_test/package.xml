@@ -15,7 +15,8 @@
  
   <build_depend>roslaunch</build_depend>
  
-  <run_depend>cob_bringup</run_depend>
+  <!--run_depend>cob_bringup</run_depend--> <!-- not declare dependency - simplifies travis ci -->
+  <!--run_depend>cob_bringup_sim</run_depend--> <!-- not declare dependency - simplifies travis ci -->
   <run_depend>cob_hardware_test_core</run_depend>
 
 
