@@ -11,7 +11,9 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <exec_depend>cob_bringup</exec_depend>
+  <exec_depend>canopen_chain_node</exec_depend>
+  <exec_depend>canopen_motor_node</exec_depend>
+  <exec_depend>cob_control_mode_adapter</exec_depend>
   <exec_depend>cob_description</exec_depend>
   <exec_depend>controller_manager</exec_depend>
   <exec_depend>joint_state_controller</exec_depend>

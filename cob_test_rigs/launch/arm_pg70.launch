@@ -24,7 +24,7 @@
 		<param name="robot_description" command="$(find xacro)/xacro --inorder '$(arg pkg_hardware_config)/robots/$(arg robot)/urdf/$(arg robot).urdf.xacro'"/>
 
 		<!-- arm component -->
-		<include file="$(find cob_bringup)/drivers/canopen_402.launch">
+		<include file="$(find cob_test_rigs)/launch/drivers/canopen_402.launch">
 			<arg name="robot" value="arm"/>
 			<arg name="pkg_hardware_config" value="$(arg pkg_hardware_config)"/>
 			<arg name="component_name" value="arm"/>
@@ -34,14 +34,14 @@
 			<arg name="start_external_sync" value="true"/>
 		</include>
 
-		<include file="$(find cob_bringup)/controllers/generic_controller.launch">
+		<include file="$(find cob_test_rigs)/launch/controllers/generic_controller.launch">
 			<arg name="robot" value="arm"/>
 			<arg name="pkg_hardware_config" value="$(arg pkg_hardware_config)"/>
 			<arg name="component_name" value="arm"/>
 		</include>
 
 		<!-- pg70 component -->
-		<include file="$(find cob_bringup)/drivers/canopen_402.launch">
+		<include file="$(find cob_test_rigs)/launch/drivers/canopen_402.launch">
 			<arg name="robot" value="pg70"/>
 			<arg name="pkg_hardware_config" value="$(arg pkg_hardware_config)"/>
 			<arg name="component_name" value="pg70"/>
@@ -51,7 +51,7 @@
 			<arg name="start_external_sync" value="false"/>
 		</include>
 
-		<include file="$(find cob_bringup)/controllers/generic_controller.launch">
+		<include file="$(find cob_test_rigs)/launch/controllers/generic_controller.launch">
 			<arg name="robot" value="pg70"/>
 			<arg name="pkg_hardware_config" value="$(arg pkg_hardware_config)"/>
 			<arg name="component_name" value="pg70"/>
