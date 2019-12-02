@@ -1,0 +1,60 @@
+- git:
+    local-name: cob_command_tools
+    uri: https://github.com/ipa320/cob_command_tools.git
+    version: indigo_dev
+- git:
+    local-name: cob_common
+    uri: https://github.com/ipa320/cob_common.git
+    version: kinetic_dev
+- git:
+    local-name: cob_control
+    uri: https://github.com/ipa320/cob_control.git
+    version: kinetic_dev
+- git:
+    local-name: cob_driver
+    uri: https://github.com/ipa320/cob_driver.git
+    version: kinetic_dev
+- git:
+    local-name: ipa_differential_docking
+    uri: git@github.com:ipa320/ipa_differential_docking.git
+    version: master
+- git:
+    local-name: pointcloud_to_laserscan
+    uri: git@github.com:ipa320/pointcloud_to_laserscan
+    version: indigo-devel
+- git:
+    local-name: realsense
+    uri: https://github.com/mojin-robotics/realsense.git
+    version: indigo-devel
+- git:
+    local-name: realsense2_substitute
+    uri: https://github.com/mojin-robotics/realsense.git
+    version: realsense2_substitute
+- git:
+    local-name: mojin_calibration_data
+    uri: git@github.com:mojin-robotics/mojin_calibration_data.git
+    version: indigo-devel
+- git:
+    local-name: mojin_common
+    uri: git@github.com:mojin-robotics/mojin_common.git
+    version: kinetic-devel
+- git:
+    local-name: mojin_drivers
+    uri: git@github.com:mojin-robotics/mojin_drivers.git
+    version: kinetic-devel
+- git:
+    local-name: mojin_perception_common
+    uri: git@github.com:mojin-robotics/mojin_perception_common.git
+    version: kinetic-devel
+- git:
+    local-name: mojin_robots
+    uri: git@github.com:mojin-robotics/mojin_robots.git
+    version: kinetic-devel
+- git:
+    local-name: mojin_supported_robots
+    uri: git@github.com:mojin-robotics/mojin_supported_robots.git
+    version: indigo-devel
+- git:
+    local-name: zpl2_ros
+    uri: git@github.com:mojin-robotics/zpl2_ros.git
+    version: kinetic-devel
