@@ -17,3 +17,12 @@ install(PROGRAMS
 install(DIRECTORY launch config
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
+
+### TEST ###
+if(CATKIN_ENABLE_TESTING)
+  find_package(roslaunch REQUIRED)
+
+  roslaunch_add_file_check(launch/base.launch flexisoft_host:=test)
+  roslaunch_add_file_check(launch/head.launch)
+  roslaunch_add_file_check(launch/torso.launch)
+endif()

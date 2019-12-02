@@ -11,6 +11,8 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
+  <depend>roslaunch</depend>
+
   <exec_depend>actionlib</exec_depend>
   <exec_depend>cob_light</exec_depend>
   <exec_depend>cob_sick_s300</exec_depend>

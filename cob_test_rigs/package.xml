@@ -11,6 +11,8 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
+  <depend>roslaunch</depend>
+
   <exec_depend>canopen_chain_node</exec_depend>
   <exec_depend>canopen_motor_node</exec_depend>
   <exec_depend>cob_control_mode_adapter</exec_depend>
